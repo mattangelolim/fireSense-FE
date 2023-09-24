@@ -1,12 +1,42 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import firebg from "../assets/imgs/login-bg.jpg";
+import logo from "../assets/imgs/firesense-logo.png";
 import "../css/login.css";
 
 const LoginPage = () => {
   const [login, setLogin] = useState(true);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleSwitchForm = () => {
     setLogin(!login);
+  };
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    const BaseURL = "http://localhost:9000/user/login"
+
+    try {
+      const response = await axios.post(BaseURL, {
+        email: email,
+        password: password,
+      });
+
+      if (response.data.success) {
+        alert('Login successful!');
+        navigate("/home");
+      } else {
+        alert('Login failed. Please check your credentials.');
+      }
+    } catch (error) {
+      console.error('Error during login:', error);
+      console.log(email)
+      console.log(password)
+      alert('Error during login. Please try again later.');
+    }
   };
 
   return (
@@ -36,8 +66,8 @@ const LoginPage = () => {
               className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"
             >
               <img
-                className="w-8 h-8 mr-2"
-                src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg"
+                className="w-16 h-16"
+                src={logo}
                 alt="logo"
               />
               FireSense
@@ -61,6 +91,9 @@ const LoginPage = () => {
                       id="email"
                       className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       placeholder="Please input a correct email"
+                      onChange={(e) =>{
+                        setEmail(e.target.value)
+                      }}
                       required=""
                     />
                   </div>
@@ -73,8 +106,9 @@ const LoginPage = () => {
                     </label>
                     <input
                       type="password"
-                      name="password"
-                      id="password"
+                      onChange={(e) =>{
+                        setPassword(e.target.value)
+                      }}
                       placeholder="••••••••"
                       className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       required=""
@@ -109,6 +143,7 @@ const LoginPage = () => {
                   </div>
                   <button
                     type="submit"
+                    onClick={handleLogin}
                     className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
                   >
                     Sign in

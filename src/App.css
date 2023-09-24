@@ -2,6 +2,9 @@
   margin: 0;
   padding: 0;
 }
+.App{
+  height: auto;
+}
 
 @tailwind base;
 @tailwind components;
