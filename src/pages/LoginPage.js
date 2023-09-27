@@ -4,6 +4,7 @@ import axios from "axios";
 import firebg from "../assets/imgs/login-bg.jpg";
 import logo from "../assets/imgs/firesense-logo.png";
 import "../css/login.css";
+import Cookies from "js-cookie";
 
 const LoginPage = () => {
   const [login, setLogin] = useState(true);
@@ -17,7 +18,7 @@ const LoginPage = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    const BaseURL = "http://localhost:9000/user/login"
+    const BaseURL = "http://localhost:9000/user/login";
 
     try {
       const response = await axios.post(BaseURL, {
@@ -25,17 +26,31 @@ const LoginPage = () => {
         password: password,
       });
 
-      if (response.data.success) {
-        alert('Login successful!');
-        navigate("/home");
+      if (response.data) {
+        const user_type = response.data.user.user_type;
+        console.log(user_type);
+
+        Cookies.set("loggedIn", "true");
+        Cookies.set("email", email);
+        Cookies.set("role", user_type);
+
+        if (user_type === "admin") {
+          alert("Login successful!");
+          navigate("/admin/home");
+          console.log(Cookies.get("role"));
+        } else {
+          alert("User Login successful!");
+          navigate("/home");
+          console.log(Cookies.get("role"));
+        }
       } else {
-        alert('Login failed. Please check your credentials.');
+        alert("Login failed. Please check your credentials.");
       }
     } catch (error) {
-      console.error('Error during login:', error);
-      console.log(email)
-      console.log(password)
-      alert('Error during login. Please try again later.');
+      console.error("Error during login:", error);
+      console.log(email);
+      console.log(password);
+      alert("Error during login. Please try again later.");
     }
   };
 
@@ -65,11 +80,7 @@ const LoginPage = () => {
               href="#"
               className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"
             >
-              <img
-                className="w-16 h-16"
-                src={logo}
-                alt="logo"
-              />
+              <img className="w-16 h-16" src={logo} alt="logo" />
               FireSense
             </a>
             <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
@@ -91,8 +102,8 @@ const LoginPage = () => {
                       id="email"
                       className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       placeholder="Please input a correct email"
-                      onChange={(e) =>{
-                        setEmail(e.target.value)
+                      onChange={(e) => {
+                        setEmail(e.target.value);
                       }}
                       required=""
                     />
@@ -106,8 +117,8 @@ const LoginPage = () => {
                     </label>
                     <input
                       type="password"
-                      onChange={(e) =>{
-                        setPassword(e.target.value)
+                      onChange={(e) => {
+                        setPassword(e.target.value);
                       }}
                       placeholder="••••••••"
                       className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"

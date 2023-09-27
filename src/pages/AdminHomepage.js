@@ -1,13 +1,12 @@
 import React from "react";
-import Sidebar from "../components/Sidebar";
+import SidebarAdmin from "../components/AdminSidebar";
 import Header from "../components/Header";
 
 const HomePage = () => {
   return (
     <div className="flex">
-      <Sidebar />
+      <SidebarAdmin />
       <Header />
-      {/* <CreateAdvisory /> */}
     </div>
   );
 };
