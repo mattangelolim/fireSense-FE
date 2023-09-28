@@ -5,7 +5,7 @@
 
 .marquee {
   display: inline-block;
-  animation: marquee 15s linear infinite;
+  animation: marquee 30s linear infinite;
   padding: 0 10px; /* Add padding as needed */
 }
 

@@ -37,12 +37,14 @@ const LoginPage = () => {
         if (user_type === "admin") {
           alert("Login successful!");
           navigate("/admin/home");
-          console.log(Cookies.get("role"));
+          // console.log(Cookies.get("role"));
         } else {
           alert("User Login successful!");
           navigate("/home");
           console.log(Cookies.get("role"));
         }
+
+        window.location.reload();
       } else {
         alert("Login failed. Please check your credentials.");
       }

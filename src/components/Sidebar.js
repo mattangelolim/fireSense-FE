@@ -7,13 +7,23 @@ import { useNavigate } from "react-router-dom";
 const Sidebar = () => {
   const navigate = useNavigate();
 
+  const removeAllCookies = () => {
+    const cookies = Object.keys(Cookies.get());
+
+    cookies.forEach((cookie) => {
+      Cookies.remove(cookie);
+    });
+  };
+
   const handleLogout = () => {
-    Cookies.remove("loggedIn");
+    removeAllCookies();
     alert("Logout successful!");
     navigate("/");
+
+    window.location.reload();
   };
   return (
-    <div className="sidebar text-white h-screen w-1/5 py-2 flex flex-col">
+    <div className="sidebar text-white h-screen py-2 flex flex-col">
       {/* Logo */}
       <div className="mb-4">
         <img src={firesense} alt="Logo" className="w-full" />

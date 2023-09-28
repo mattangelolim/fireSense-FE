@@ -14,6 +14,7 @@ import Cookies from "js-cookie";
 
 function App() {
   const loggedIn = Cookies.get("loggedIn") === "true";
+  const userRole = Cookies.get("role");
 
   return (
     <div className="App">
@@ -22,11 +23,42 @@ function App() {
           <Route
             exact
             path="/"
-            element={loggedIn ? <Navigate to="/home" /> : <Login />}
+            element={
+              loggedIn ? (
+                <Navigate to={userRole === "admin" ? "/admin/home" : "/home"} />
+              ) : (
+                <Login />
+              )
+            }
           />
-          <Route path="/home" element={<Home />} />
-          <Route path="/admin/home" element={<Adminhome />} />
-          <Route path="/admin/advisory" element={<AdminAdvisory />} />
+          <Route
+            path="/home"
+            element={
+              loggedIn && userRole !== "admin" ? <Home /> : <Navigate to="/" />
+            }
+          />
+          <Route
+            path="/admin/home"
+            element={
+              loggedIn && userRole === "admin" ? (
+                <Adminhome />
+              ) : (
+                <Navigate to="/" />
+              )
+            }
+          />
+          <Route
+            path="/admin/advisory"
+            element={
+              loggedIn && userRole === "admin" ? (
+                <AdminAdvisory />
+              ) : (
+                <Navigate to="/" />
+              )
+            }
+          />
+          {/* Add a catch-all route */}
+          <Route element={<Navigate to="/" />} />
         </Routes>
       </Router>
     </div>
