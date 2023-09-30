@@ -15,16 +15,21 @@ const Header = () => {
       .catch((error) => {
         console.error("Error fetching announcements:", error);
       });
-  }, []); // Empty dependency array means this effect runs once when component mounts
+  }, []);
+
+  const currentDate = new Date();
+
+  const filteredAnnouncements = announcements.filter(
+    (announcement) => new Date(announcement.expirationDate) >= currentDate
+  );
 
   return (
-    <div className="bg-orange-900 text-white p-4 overflow-hidden">
+    <div className="bg-orange-900 text-white p-4 overflow-hidden mb-4">
       <div className="marquee-container">
         <span className="marquee text-xl font-bold">
-          {announcements.map((announcement, index) => (
+          {filteredAnnouncements.map((announcement, index) => (
             <React.Fragment key={index}>
-              {announcement.announcement}{" "}
-              {/* Assuming the API returns an array of objects with an 'announcement' property */}
+              {announcement.announcement} ||{" "}
             </React.Fragment>
           ))}
         </span>

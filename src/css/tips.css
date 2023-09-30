@@ -1,0 +1,27 @@
+.container {
+  margin: auto;
+  border-radius: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  max-height: 90vh;
+  overflow-y: scroll;
+}
+
+h1 {
+  color: red;
+}
+h2 {
+  color: #333;
+}
+
+p {
+  color: #555;
+}
+
+ul {
+  color: #666;
+}
+
+li {
+  margin-bottom: 8px;
+}

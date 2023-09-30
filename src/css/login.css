@@ -1,0 +1,45 @@
+@media only screen and (max-width: 800px) {
+  .login-page {
+    width: 100%;
+    /* border: 1px solid black; */
+    display: block;
+    overflow-x: hidden;
+    /* background-color: beige; */
+    padding: 0;
+  }
+
+  .login-content {
+    width: 768px;
+    height: 200px;
+    box-sizing: border-box;
+  }
+
+  .login-content h1 {
+    font-size: xx-large;
+  }
+  .login-content h2 {
+    font-size: x-large;
+  }
+  .login-content p {
+    font-size: large;
+  }
+  .login-picture {
+    width: max-content;
+  }
+  .login-form {
+    width: 768px;
+  }
+  .login-form-container {
+    height: 800px;
+  }
+  .signup-form {
+    width: 768px;
+  }
+  .signup-form-container {
+    /* background-color: red; */
+    height: 800px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+}

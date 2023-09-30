@@ -5,7 +5,7 @@ import Header from "../components/Header";
 
 const AdminAdvisory = () => {
   return (
-    <div className="flex">
+    <div className="flex bg-gray-200">
       <SidebarAdmin className="w-1/6" />
       <div className="w-5/6">
         <Header />

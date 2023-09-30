@@ -5,6 +5,17 @@
 .App {
   height: 100vh;
 }
+@media only screen and (max-width: 800px) {
+  .App {
+    width: fit-content;
+    height: auto;
+    overflow-x: hidden;
+    background-image: url("./assets/imgs/login-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-x: hidden;
+  }
+}
 
 @tailwind base;
 @tailwind components;
@@ -12,7 +23,7 @@
 
 @layer base {
   div {
-    /* @apply border border-black; */
+    @apply border border-black;
   }
   body {
     @apply font-[sans-serif];

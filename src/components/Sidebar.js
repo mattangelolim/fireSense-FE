@@ -23,14 +23,14 @@ const Sidebar = () => {
     window.location.reload();
   };
   return (
-    <div className="sidebar text-white h-screen py-2 flex flex-col">
+    <div className="sidebar text-white h-screen flex flex-col">
       {/* Logo */}
-      <div className="mb-4">
+      <div className="mb-4 h-64">
         <img src={firesense} alt="Logo" className="w-full" />
       </div>
 
       {/* Links */}
-      <div className="flex flex-col space-y-4 pr-2 ">
+      <div className="flex flex-col space-y-2 pr-2 ">
         <a
           href="#"
           className="text-xl font-semibold hover:text-orange-300 p-2 bg-orange-700 rounded-r border-r-16 border-orange-600 py-4 px-8"
@@ -44,13 +44,13 @@ const Sidebar = () => {
           Live Video Feed
         </a>
         <a
-          href="#"
+          href="/user/tips"
           className="text-xl font-semibold hover:text-orange-300 p-2 bg-orange-700 rounded-r border-r-6 border-orange-600 py-4 px-8"
         >
           Fire Tips & Knowledge
         </a>
         <a
-          href="#"
+          href="/user/faqs"
           className="text-xl font-semibold hover:text-orange-300 p-2 bg-orange-700 rounded-r border-r-6 border-orange-600 py-4 px-8"
         >
           FAQs

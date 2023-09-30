@@ -1,9 +1,6 @@
 import React from "react";
 import "./App.css";
-import Login from "./pages/LoginPage";
-import Home from "./pages/HomePage";
-import Adminhome from "./pages/AdminHomepage";
-import AdminAdvisory from "./pages/adminAdvisorypage.js";
+
 import {
   BrowserRouter as Router,
   Route,
@@ -11,6 +8,14 @@ import {
   Navigate,
 } from "react-router-dom";
 import Cookies from "js-cookie";
+import Login from "./pages/LoginPage";
+import Home from "./pages/HomePage";
+import Adminhome from "./pages/AdminHomepage";
+import AdminAdvisory from "./pages/adminAdvisorypage.js";
+import ActivationPage from "./pages/activationPage";
+import AdminTipsPage from "./pages/adminTipsPage";
+import UserTipsPage from "./pages/resident/userTipsPage";
+import UserFaqsPage from "./pages/resident/userFAQsPage";
 
 function App() {
   const loggedIn = Cookies.get("loggedIn") === "true";
@@ -38,6 +43,26 @@ function App() {
             }
           />
           <Route
+            path="/user/tips"
+            element={
+              loggedIn && userRole !== "admin" ? (
+                <UserTipsPage />
+              ) : (
+                <Navigate to="/" />
+              )
+            }
+          />
+          <Route
+            path="/user/faqs"
+            element={
+              loggedIn && userRole !== "admin" ? (
+                <UserFaqsPage />
+              ) : (
+                <Navigate to="/" />
+              )
+            }
+          />
+          <Route
             path="/admin/home"
             element={
               loggedIn && userRole === "admin" ? (
@@ -57,6 +82,18 @@ function App() {
               )
             }
           />
+          <Route
+            path="/admin/tips"
+            element={
+              loggedIn && userRole === "admin" ? (
+                <AdminTipsPage />
+              ) : (
+                <Navigate to="/" />
+              )
+            }
+          />
+          <Route path="/account/activation" element={<ActivationPage />} />
+
           {/* Add a catch-all route */}
           <Route element={<Navigate to="/" />} />
         </Routes>
