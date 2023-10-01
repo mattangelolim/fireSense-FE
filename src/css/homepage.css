@@ -1,0 +1,10 @@
+.homepage{
+    height: auto;
+    width: auto;
+    /* border: 1px solid black; */
+}
+@media screen and (min-width: 800px) and (max-width: 1440px){
+    .right{
+      width: 75%;
+    }
+  }

@@ -1,19 +1,34 @@
-@media only screen and (max-width: 800px) {
+@media screen and (min-width:500px) and (max-width: 800px) {
   .login-page {
-    width: 100%;
+    width: auto;
     /* border: 1px solid black; */
     display: block;
     overflow-x: hidden;
     /* background-color: beige; */
     padding: 0;
   }
-
   .login-content {
-    width: 768px;
-    height: 200px;
+    display: flex;
+    width: auto;
+    height: auto;
     box-sizing: border-box;
   }
-
+  .login-picture {
+    width: auto;
+  }
+  .login-form {
+    width: auto;
+  }
+  .login-form-container {
+    height: 800px;
+  }
+  .signup-form {
+    width: auto;
+  }
+  .signup-form-container {
+    /* background-color: red; */
+    height: 800px;
+  }
   .login-content h1 {
     font-size: xx-large;
   }
@@ -23,21 +38,55 @@
   .login-content p {
     font-size: large;
   }
-  .login-picture {
-    width: max-content;
+}
+@media screen and (max-width: 500px){
+  .login-page{
+    display:block;
+    width: auto;
   }
+  .login-picture{
+    width: auto;
+  }
+  .login-content {
+    display: flex;
+    width: auto;
+    height: 200px;
+    box-sizing: border-box;
+  } 
   .login-form {
-    width: 768px;
+    width: auto;
   }
   .login-form-container {
     height: 800px;
   }
   .signup-form {
-    width: 768px;
+    width: auto;
   }
   .signup-form-container {
     /* background-color: red; */
     height: 800px;
+  }
+  .login-content h1 {
+    font-size: large;
+  }
+  .login-content h2 {
+    font-size: medium;
+  }
+  .login-content p {
+    font-size: small;
+  }
+
+}
+
+@media screen and (min-width: 800px) and (max-width: 1024px){
+  .login-content h1 {
+    font-size: xx-large;
+  }
+  .login-content h2 {
+    font-size: x-large;
+  }
+  .login-content p {
+    font-size: large;
   }
 }
 

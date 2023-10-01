@@ -1,3 +1,4 @@
+
 .marquee-container {
   white-space: nowrap;
   overflow: hidden;
@@ -5,7 +6,7 @@
 
 .marquee {
   display: inline-block;
-  animation: marquee 30s linear infinite;
+  animation: marquee 40s linear infinite;
   padding: 0 10px;
 }
 

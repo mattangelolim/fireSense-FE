@@ -24,9 +24,10 @@ const Header = () => {
   );
 
   return (
-    <div className="bg-orange-900 text-white p-4 overflow-hidden mb-4">
+    <div className="header bg-orange-900 text-white p-4 overflow-hidden mb-4 h-16">
       <div className="marquee-container">
         <span className="marquee text-xl font-bold">
+          ADVISORY !! PAALALA !!{" "}
           {filteredAnnouncements.map((announcement, index) => (
             <React.Fragment key={index}>
               {announcement.announcement} ||{" "}

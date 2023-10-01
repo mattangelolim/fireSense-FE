@@ -1,14 +1,26 @@
 * {
   margin: 0;
   padding: 0;
+  border: 0;
+  outline: none;
+  box-sizing: border-box;
+
 }
 .App {
-  height: 100vh;
+  height: auto;
+  animation: fade-in 0.5s ease-in-out;
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 @media only screen and (max-width: 800px) {
   .App {
-    width: fit-content;
-    height: auto;
+    width: auto;
     overflow-x: hidden;
     background-image: url("./assets/imgs/login-bg.jpg");
     background-repeat: no-repeat;
@@ -17,13 +29,14 @@
   }
 }
 
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   div {
-    @apply border border-black;
+    /* @apply border border-black; */
   }
   body {
     @apply font-[sans-serif];

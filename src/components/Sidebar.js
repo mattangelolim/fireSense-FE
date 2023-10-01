@@ -4,7 +4,7 @@ import "../css/sidebar.css";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 
-const Sidebar = () => {
+const Sidebar = ({ isSidebarOpen }) => {
   const navigate = useNavigate();
 
   const removeAllCookies = () => {
@@ -23,22 +23,28 @@ const Sidebar = () => {
     window.location.reload();
   };
   return (
-    <div className="sidebar text-white h-screen flex flex-col">
+    <div
+      className={`sidebar text-white flex flex-col ${
+        isSidebarOpen ? "active" : ""
+      }`}
+    >
       {/* Logo */}
-      <div className="mb-4 h-64">
-        <img src={firesense} alt="Logo" className="w-full" />
+      <div className="logo mb-4">
+        <a href="/home">
+          <img src={firesense} alt="Logo" className="w-full" />
+        </a>
       </div>
 
       {/* Links */}
-      <div className="flex flex-col space-y-2 pr-2 ">
+      <div className="flex flex-col space-y-2 pr-2">
         <a
-          href="#"
+          href="/home"
           className="text-xl font-semibold hover:text-orange-300 p-2 bg-orange-700 rounded-r border-r-16 border-orange-600 py-4 px-8"
         >
           Fire Forecast
         </a>
         <a
-          href="#"
+          href="/live"
           className="text-xl font-semibold hover:text-orange-300 p-2 bg-orange-700 rounded-r border-r-6 border-orange-600 py-4 px-8"
         >
           Live Video Feed
@@ -56,16 +62,16 @@ const Sidebar = () => {
           FAQs
         </a>
         <a
-          href="#"
+          href="/contact"
           className="text-xl font-semibold hover:text-orange-300 p-2 bg-orange-700 rounded-r border-r-6 border-orange-600 py-4 px-8"
         >
           Contact Us
         </a>
       </div>
       <a
-        href="#"
+        href="/"
         onClick={handleLogout}
-        className="text-xl font-semibold hover:text-orange-300 p-2 bg-orange-700 rounded-r border-r-6 border-orange-600 py-4 px-8 mt-52"
+        className="text-xl font-semibold hover:text-orange-300 p-2 bg-orange-700 rounded-r border-r-6 border-orange-600 py-4 px-8 mt-28"
       >
         Logout
       </a>

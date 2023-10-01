@@ -107,7 +107,7 @@ const LoginPage = () => {
         <div className="login-content flex justify-center items-center h-full">
           <div className="text-center py-20 bg-opacity-20 bg-white w-full ">
             <h2 className="text-white text-4xl">Your Safety, Our Priority</h2>
-            <h1 className="text-white uppercase my-2 text-5xl font-black">
+            <h1 className="class-h1 text-white uppercase my-2 text-5xl font-black">
               Welcome Back to FireSense
             </h1>
             <p className="text-white text-2xl">
@@ -125,7 +125,7 @@ const LoginPage = () => {
             </div>
             <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
               <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-                <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+                <h1 className=" text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                   Sign in to your account
                 </h1>
                 <form className="space-y-4 md:space-y-6" action="#">

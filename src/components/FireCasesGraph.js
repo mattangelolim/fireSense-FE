@@ -58,7 +58,7 @@ const FireCasesGraph = () => {
   });
 
   return (
-    <div>
+    <div className="my-4 mx-4 bg-white p-8">
       <h2>Fire Cases Line Graph</h2>
       <Chart
         options={chartOptions}

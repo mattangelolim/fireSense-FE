@@ -1,4 +1,31 @@
 .sidebar {
   background-color: #bf033b;
   background-image: linear-gradient(315deg, #bf033b 0%, #ffc719 74%);
+  /* border: 1px solid red; */
+  height: 100vh;
+  width: 500px;
+}
+.logo {
+  /* border: 1px solid black; */
+  height: 200px;
+}
+@media screen and (min-width: 1024px) and (max-width: 1440px) {
+  .sidebar {
+    display: 25%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .sidebar {
+    position: fixed; /* Fix the sidebar in place */
+    left: -300px; 
+    width: 300px;
+    transition: left 1s; /* Add transition for animation */
+    z-index: 999; /* Ensure it's on top of other content */
+  }
+
+  .sidebar.active {
+    left: 0; /* Bring it back on-screen when active */
+  }
+
 }

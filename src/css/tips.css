@@ -1,11 +1,19 @@
 .container {
-  margin: auto;
+  width: 80%;
   border-radius: 1rem;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
     rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
   max-height: 90vh;
   overflow-y: scroll;
+  margin-bottom: 20px;
 }
+.hidden{
+  display: none;
+}
+/* .fire-tips{
+  width: 1400px;
+  background-color: red;
+} */
 
 h1 {
   color: red;
@@ -24,4 +32,59 @@ ul {
 
 li {
   margin-bottom: 8px;
+}
+
+@media screen and (min-width: 800px) and (max-width: 1440px){
+  .right{
+    width: 75%;
+  }
+}
+@media screen and (min-width: 500px) and (max-width: 800px){
+  .left {
+    flex: 0 0 16.666667%; /* Sidebar width */
+  }
+  .right {
+    flex: 1; /* Right div takes remaining space */
+  }
+  .hidden{
+    display: flex;
+    height: 150px;
+    width: 15px;
+    border-right: .5rem;
+    transition: left 1s;
+    /* margin-left: 298px; */
+    background-color: #7c2d12;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  }
+  .hidden.active{
+    left: 298px;
+
+  }
+  
+}
+@media screen and (max-width: 500px){  
+  .container{
+    font-size: small;
+  }
+  .left {
+    flex: 0 0 16.666667%; 
+  }
+  .right {
+    flex: 1; 
+  }
+  .hidden{
+    display: flex;
+    height: 150px;
+    width: 15px;
+    border-right: .5rem;
+    transition: left 1s;
+    /* margin-left: 298px; */
+    background-color: #7c2d12;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  }
+  .hidden.active{
+    left: 298px;
+
+  }
+  
 }

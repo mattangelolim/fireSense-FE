@@ -4,7 +4,7 @@ import "../css/sidebar.css";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 
-const Sidebar = () => {
+const Sidebar = ({ isSidebarOpen }) => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -15,22 +15,27 @@ const Sidebar = () => {
     navigate("/");
   };
   return (
-    <div className="sidebar text-white h-screen flex flex-col ">
-      {/* Logo */}
-      <div className="mb-4 h-64">
+    <div
+      className={`sidebar text-white flex flex-col ${
+        isSidebarOpen ? "active" : ""
+      }`}
+    >
+      <div className="logo mb-4">
+        <a href="/admin/home">
         <img src={firesense} alt="Logo" className="w-full" />
+        </a>
       </div>
 
       {/* Links */}
-      <div className="flex flex-col space-y-2 pr-2 ">
+      <div className="flex flex-col space-y-3 pr-2 w-94 ">
         <a
-          href="#"
+          href="/admin/home"
           className="text-xl font-semibold hover:text-orange-300 p-2 bg-orange-700 rounded-r border-r-16 border-orange-600 py-4 px-8"
         >
           Fire Forecast
         </a>
         <a
-          href="#"
+          href="/admin/live"
           className="text-xl font-semibold hover:text-orange-300 p-2 bg-orange-700 rounded-r border-r-6 border-orange-600 py-4 px-8"
         >
           Live Video Feed
@@ -48,19 +53,21 @@ const Sidebar = () => {
           Create Advisory
         </a>
         <a
-          href="#"
+          href="/admin/livestream"
           className="text-xl font-semibold hover:text-orange-300 p-2 bg-orange-700 rounded-r border-r-6 border-orange-600 py-4 px-8"
         >
           Accept Livestreams
         </a>
+
       </div>
       <a
         href="/"
         onClick={handleLogout}
-        className="text-xl font-semibold hover:text-orange-300 p-2 bg-orange-700 rounded-r border-r-6 border-orange-600 py-4 px-8 mt-52"
+        className="text-xl font-semibold hover:text-orange-300 p-2 bg-orange-700 rounded-r border-r-6 border-orange-600 py-4 px-8 my-8"
       >
         Logout
       </a>
+
     </div>
   );
 };
