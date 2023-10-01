@@ -20,12 +20,12 @@
     position: fixed; /* Fix the sidebar in place */
     left: -300px; 
     width: 300px;
-    transition: left 1s; /* Add transition for animation */
-    z-index: 999; /* Ensure it's on top of other content */
+    transition: left 1s; 
+    z-index: 999; 
   }
 
   .sidebar.active {
-    left: 0; /* Bring it back on-screen when active */
+    left: 0; 
   }
 
 }
