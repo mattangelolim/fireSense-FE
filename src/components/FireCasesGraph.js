@@ -5,7 +5,7 @@ const FireCasesGraph = () => {
   const [fireCasesData, setFireCasesData] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:9000/all/fire/cases")
+    fetch("http://3.27.218.228:9000/all/fire/cases")
       .then((response) => response.json())
       .then((data) => {
         setFireCasesData(data);

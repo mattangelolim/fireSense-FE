@@ -11,7 +11,7 @@ const ActivationPage = () => {
   const handleActivation = async (e) => {
     e.preventDefault();
 
-    const URL = "http://localhost:9000/user/activate";
+    const URL = "http://3.27.218.228:9000/user/activate";
 
     try {
       const response = await axios.post(URL, {

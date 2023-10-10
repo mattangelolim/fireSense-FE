@@ -18,7 +18,7 @@ const LivestreamPage = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:9000/api/show/live/last")
+      .get("http://3.27.218.228:9000/api/show/live/last")
       .then((response) => {
         setLastLive(response.data.data);
       })
@@ -29,7 +29,7 @@ const LivestreamPage = () => {
   
 
   useEffect(() => {
-    fetch("http://localhost:9000/api/live/comments")
+    fetch("http://3.27.218.228:9000/api/live/comments")
       .then((response) => response.json())
       .then((data) => {
         // console.log(data.comments);
@@ -41,7 +41,7 @@ const LivestreamPage = () => {
   const handleSendComment = async (e) => {
     e.preventDefault();
 
-    const URL = "http://localhost:9000/api/comment";
+    const URL = "http://3.27.218.228:9000/api/comment";
     const username = Cookies.get("username");
 
     try {

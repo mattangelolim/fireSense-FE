@@ -42,7 +42,7 @@ const CreateAdvisory = () => {
 
     // Send POST request using Axios
     axios
-      .post("http://localhost:9000/admin/advisory", {
+      .post("http://3.27.218.228:9000/admin/advisory", {
         announcement,
         expirationDate,
         district,
