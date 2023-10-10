@@ -62,7 +62,7 @@ const Sidebar = ({ isSidebarOpen }) => {
           FAQs
         </a>
         <a
-          href="/contact"
+          href="/user/contact"
           className="text-xl font-semibold hover:text-orange-300 p-2 bg-orange-700 rounded-r border-r-6 border-orange-600 py-4 px-8"
         >
           Contact Us

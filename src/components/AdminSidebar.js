@@ -56,7 +56,7 @@ const Sidebar = ({ isSidebarOpen }) => {
           href="/admin/livestream"
           className="text-xl font-semibold hover:text-orange-300 p-2 bg-orange-700 rounded-r border-r-6 border-orange-600 py-4 px-8"
         >
-          Accept Livestreams
+          Broadcast Live
         </a>
 
       </div>

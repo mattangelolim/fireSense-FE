@@ -7,6 +7,7 @@ const CreateAdvisory = () => {
   const [expirationDate, setExpirationDate] = useState("");
   const [district, setSelectedDistrict] = useState("all");
 
+
   const handleDistrictChange = (e) => {
     setSelectedDistrict(e.target.value);
   };
@@ -21,6 +22,23 @@ const CreateAdvisory = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+
+    const year = tomorrow.getFullYear();
+    const month = String(tomorrow.getMonth() + 1).padStart(2, '0');
+    const day = String(tomorrow.getDate()).padStart(2, '0');
+  
+    const formattedTomorrow = `${year}-${month}-${day}`;
+    console.log(formattedTomorrow)
+    console.log(expirationDate)
+
+    if (expirationDate <= formattedTomorrow) {
+      alert("Expiry date must be at least two days from now.");
+      return; 
+    }
+  
 
     // Send POST request using Axios
     axios

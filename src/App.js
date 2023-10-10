@@ -15,7 +15,12 @@ import AdminAdvisory from "./pages/adminAdvisorypage.js";
 import ActivationPage from "./pages/activationPage";
 import AdminTipsPage from "./pages/adminTipsPage";
 import UserTipsPage from "./pages/resident/userTipsPage";
+import UserContactPage from "./pages/resident/userContactPage";
 import UserFaqsPage from "./pages/resident/userFAQsPage";
+import LiveStream from "./pages/livestreamPage";
+import LiveStreamUser from "./pages/livestreamPageUser";
+import Broadcast from "./pages/BroadcastPage";
+// import Viewer from "./components/viewer";
 
 function App() {
   const loggedIn = Cookies.get("loggedIn") === "true";
@@ -25,6 +30,36 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
+        <Route
+            path="/admin/livestream"
+            element={
+              loggedIn && userRole === "admin" ? (
+                <Broadcast />
+              ) : (
+                <Navigate to="/" />
+              )
+            }
+          />
+          <Route
+            path="/admin/live"
+            element={
+              loggedIn && userRole === "admin" ? (
+                <LiveStream />
+              ) : (
+                <Navigate to="/" />
+              )
+            }
+          />
+          <Route
+            path="/live"
+            element={
+              loggedIn && userRole !== "admin" ? (
+                <LiveStreamUser />
+              ) : (
+                <Navigate to="/" />
+              )
+            }
+          />
           <Route
             exact
             path="/"
@@ -47,6 +82,16 @@ function App() {
             element={
               loggedIn && userRole !== "admin" ? (
                 <UserTipsPage />
+              ) : (
+                <Navigate to="/" />
+              )
+            }
+          />
+                  <Route
+            path="/user/contact"
+            element={
+              loggedIn && userRole !== "admin" ? (
+                <UserContactPage />
               ) : (
                 <Navigate to="/" />
               )

@@ -70,11 +70,16 @@ const LoginPage = () => {
 
       if (response.data) {
         const user_type = response.data.user.user_type;
+        const name = response.data.user.name
+        const district = response.data.user.district
         console.log(user_type);
+        console.log(response.data)
 
         Cookies.set("loggedIn", "true");
         Cookies.set("email", email);
         Cookies.set("role", user_type);
+        Cookies.set("username", name);
+        Cookies.set("district", district);
 
         if (user_type === "admin") {
           alert("Login successful!");
@@ -186,7 +191,7 @@ const LoginPage = () => {
                       </div>
                     </div>
                     <a
-                      href="#"
+                      href="forgot"
                       className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500"
                     >
                       Forgot password?

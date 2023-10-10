@@ -1,10 +1,20 @@
-.homepage{
-    height: auto;
-    width: auto;
-    /* border: 1px solid black; */
+.homepage {
+  height: auto;
+  width: auto;
+  /* border: 1px solid black; */
 }
-@media screen and (min-width: 800px) and (max-width: 1440px){
-    .right{
-      width: 75%;
-    }
+
+.profile {
+  border: 1px solid black;
+  border-radius: 0.5rem;
+  background-color: #f3f4f7;
+  background-image: linear-gradient(315deg, #f3f4f7 0%, #caccd1 74%);
+  width: 50%;
+  padding: 2rem 4rem;
+  margin: 0 auto;
+}
+@media screen and (min-width: 800px) and (max-width: 1440px) {
+  .right {
+    width: 75%;
   }
+}
