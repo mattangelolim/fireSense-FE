@@ -89,12 +89,12 @@ const LivestreamPage = () => {
           </div>
           <div className="flex flex-col justify-center items-center">
             <div className="video border-solid border-2 border-orange-600">
-              <iframe
+            <iframe
                 className="w-full h-full aspect-w-16 aspect-h-9"
-                title="live"
+                title="livestream"
                 frameborder="0"
-                allowFullScreen
-                src="https://demo.nanocosmos.de/nanoplayer/embed/1.3.3/nanoplayer.html?group.id=ad664801-bc9f-4ef8-b798-ba5b855d5e9e&options.adaption.rule=deviationOfMean2&startIndex=0&playback.latencyControlMode=classic"
+                allowfullscreen
+                src="https://demo.nanocosmos.de/nanoplayer/embed/1.3.3/nanoplayer.html?group.id=b9f4dabf-33dd-45c7-bb69-9227b0b371cf&options.adaption.rule=deviationOfMean2&startIndex=0&playback.latencyControlMode=classic"
               ></iframe>
             </div>
             <h3
