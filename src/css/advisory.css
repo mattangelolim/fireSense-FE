@@ -6,11 +6,14 @@
   .right{
     width: 75%;
   }
+  .advisory{
+    width: 100%;
+  }
 }
 
-@media screen and (min-width: 500px) and (max-width: 800px){
+@media screen and (min-width: 500px) and (max-width: 1024px){
   .advisory{
-    height: 700px;
+    width: 100%;
   }
   .advisory textarea{
     height: 280px
@@ -18,6 +21,7 @@
 }
 @media screen and (max-width: 500px) {
   .advisory{
+    width: 100%;
     height: 500px;
     justify-content: center;
     align-items: center;

@@ -4,8 +4,9 @@ import Sidebar from "../../components/Sidebar";
 import Header from "../../components/Header";
 import arrow from "../../assets/imgs/right-arrow.png";
 import leftarrow from "../../assets/imgs/left-arrow.png";
+import maps from "../../assets/imgs/maps.png";
 
-const FAQsPage = () => {
+const ContactPage = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   
 
@@ -30,7 +31,7 @@ const FAQsPage = () => {
             onClick={handleSidebarToggle}
           />
         </div>
-        <div className="container mx-auto p-10 bg-white ">
+        <div className="container mx-auto p-10 bg-white">
           <div className="max-w-2xl mx-auto p-4">
             <h2 className="text-2xl font-bold mb-4">
               Bureau of Fire Protection
@@ -67,4 +68,4 @@ const FAQsPage = () => {
   );
 };
 
-export default FAQsPage;
+export default ContactPage;

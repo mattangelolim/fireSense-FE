@@ -1,12 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../css/advisory.css";
 
 const CreateAdvisory = () => {
   const [announcement, setAnnouncement] = useState("");
-  const [expirationDate, setExpirationDate] = useState("");
-  const [district, setSelectedDistrict] = useState("all");
+  const [expirationHours, setExpirationHours] = useState(0);
+  const [expirationMinutes, setExpirationMinutes] = useState(0);
+  const [expirationSeconds, setExpirationSeconds] = useState(0);
+  const [district, setSelectedDistrict] = useState("Disctrict 1");
 
+  const [announcements, setAnnouncements] = useState([]);
+
+  useEffect(() => {
+    // Fetch announcements when the component mounts
+    axios
+      .get("http://localhost:9000/api/all/announcements")
+      .then((response) => {
+        setAnnouncements(response.data.announcements);
+        console.log(response.data.announcements);
+      })
+      .catch((error) => {
+        console.error("Error fetching announcements:", error);
+      });
+  }, []);
 
   const handleDistrictChange = (e) => {
     setSelectedDistrict(e.target.value);
@@ -16,35 +32,16 @@ const CreateAdvisory = () => {
     setAnnouncement(e.target.value);
   };
 
-  const handleExpirationDateChange = (e) => {
-    setExpirationDate(e.target.value);
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const tomorrow = new Date();
-    tomorrow.setDate(tomorrow.getDate() + 1);
-
-    const year = tomorrow.getFullYear();
-    const month = String(tomorrow.getMonth() + 1).padStart(2, '0');
-    const day = String(tomorrow.getDate()).padStart(2, '0');
-  
-    const formattedTomorrow = `${year}-${month}-${day}`;
-    console.log(formattedTomorrow)
-    console.log(expirationDate)
-
-    if (expirationDate <= formattedTomorrow) {
-      alert("Expiry date must be at least two days from now.");
-      return; 
-    }
-  
-
     // Send POST request using Axios
     axios
-      .post("http://3.27.218.228:9000/admin/advisory", {
+      .post("http://localhost:9000/admin/advisory", {
         announcement,
-        expirationDate,
+        expirationHours,
+        expirationMinutes,
+        expirationSeconds,
         district,
       })
       .then((response) => {
@@ -57,62 +54,106 @@ const CreateAdvisory = () => {
       });
 
     setAnnouncement("");
-    setExpirationDate("");
+    setExpirationHours(0);
+    setExpirationMinutes(0);
+    setExpirationSeconds(0);
     setSelectedDistrict("All");
   };
 
   return (
-    <div className="advisory my-10 mx-20 py-10 px-10 bg-white">
+    <div className="advisory mx-10 py-10 px-10 bg-white h-1/3 w-1/2">
       {" "}
       {/* Adjust margin as needed */}
       <h2 className="text-2xl font-bold mb-2">
         Create an Advisory/Announcement
       </h2>
       <form onSubmit={handleSubmit} className="space-y-4">
-        <div className="flex flex-col space-y-2">
-          <label className="font-bold">Announcement:</label>
-          <textarea
-            type="text"
-            value={announcement}
-            onChange={handleAnnouncementChange}
-            className="border border-gray-300 px-2 py-1 rounded h-24 text-lg"
-            required
-          />
+        <div className="flex flex-row">
+          <div className="flex flex-col space-y-2 w-full">
+            <label className="font-bold">Announcement:</label>
+            <textarea
+              type="text"
+              value={announcement}
+              onChange={handleAnnouncementChange}
+              className="border border-gray-300 px-2 py-1 rounded h-24 text-lg"
+              required
+            />
+          </div>
+          <div className="w-auto ml-10">
+            <div className="flex flex-col space-y-2 mb-4">
+              <label className="font-bold">Expiration Hours:</label>
+              <div className="flex space-x-2">
+                <select
+                  value={expirationHours}
+                  onChange={(e) => {
+                    setExpirationHours(e.target.value);
+                  }}
+                  className="border border-gray-300 px-2 py-1 rounded w-16 text-lg"
+                  required
+                >
+                  {Array.from({ length: 24 }).map((_, i) => (
+                    <option key={i} value={i}>
+                      {i}
+                    </option>
+                  ))}
+                </select>
+                <span className="font-bold">:</span>
+                <select
+                  value={expirationMinutes}
+                  onChange={(e) => {
+                    setExpirationMinutes(e.target.value);
+                  }}
+                  className="border border-gray-300 px-2 py-1 rounded w-16 text-lg"
+                  required
+                >
+                  {Array.from({ length: 60 }).map((_, i) => (
+                    <option key={i} value={i}>
+                      {i < 10 ? `0${i}` : i}
+                    </option>
+                  ))}
+                </select>
+                <span className="font-bold">:</span>
+                <select
+                  value={expirationSeconds}
+                  onChange={(e) => {
+                    setExpirationSeconds(e.target.value);
+                  }}
+                  className="border border-gray-300 px-2 py-1 rounded w-16 text-lg"
+                  required
+                >
+                  {Array.from({ length: 60 }).map((_, i) => (
+                    <option key={i} value={i}>
+                      {i < 10 ? `0${i}` : i}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+            <div className="flex flex-col space-y-2 mb-4">
+              <label className="font-bold">Select District:</label>
+              <select
+                id="district"
+                value={district}
+                onChange={handleDistrictChange}
+                className="border border-gray-300 px-2 py-1 rounded w-64 text-lg"
+                required
+              >
+                <option value="District 1">District 1</option>
+                <option value="District 2">District 2</option>
+                <option value="District 3">District 3</option>
+                <option value="District 4">District 4</option>
+                <option value="District 5">District 5</option>
+                <option value="District 6">District 6</option>
+              </select>
+            </div>
+            <button
+              type="submit"
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            >
+              Create Advisory
+            </button>
+          </div>
         </div>
-        <div className="flex flex-col space-y-2">
-          <label className="font-bold">Expiration Date:</label>
-          <input
-            type="date"
-            value={expirationDate}
-            onChange={handleExpirationDateChange}
-            className="border border-gray-300 px-2 py-1 rounded w-64 text-lg"
-            required
-          />
-        </div>
-        <div className="flex flex-col space-y-2">
-          <label className="font-bold">Select District:</label>
-          <select
-            id="district"
-            value={district}
-            onChange={handleDistrictChange}
-            className="border border-gray-300 px-2 py-1 rounded w-64 text-lg"
-            required
-          >
-            <option value="All District">All District</option>
-            <option value="District 1">District 1</option>
-            <option value="District 2">District 2</option>
-            <option value="District 3">District 3</option>
-            <option value="District 4">District 4</option>
-            <option value="District 5">District 5</option>
-            <option value="District 6">District 6</option>
-          </select>
-        </div>
-        <button
-          type="submit"
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-        >
-          Create Advisory
-        </button>
       </form>
     </div>
   );
