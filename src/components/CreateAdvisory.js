@@ -9,20 +9,20 @@ const CreateAdvisory = () => {
   const [expirationSeconds, setExpirationSeconds] = useState(0);
   const [district, setSelectedDistrict] = useState("Disctrict 1");
 
-  const [announcements, setAnnouncements] = useState([]);
+  // const [announcements, setAnnouncements] = useState([]);
 
-  useEffect(() => {
-    // Fetch announcements when the component mounts
-    axios
-      .get("http://localhost:9000/api/all/announcements")
-      .then((response) => {
-        setAnnouncements(response.data.announcements);
-        console.log(response.data.announcements);
-      })
-      .catch((error) => {
-        console.error("Error fetching announcements:", error);
-      });
-  }, []);
+  // useEffect(() => {
+  //   // Fetch announcements when the component mounts
+  //   axios
+  //     .get("http://3.27.218.228:9000/api/all/announcements")
+  //     .then((response) => {
+  //       setAnnouncements(response.data.announcements);
+  //       console.log(response.data.announcements);
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error fetching announcements:", error);
+  //     });
+  // }, []);
 
   const handleDistrictChange = (e) => {
     setSelectedDistrict(e.target.value);
@@ -37,7 +37,7 @@ const CreateAdvisory = () => {
 
     // Send POST request using Axios
     axios
-      .post("http://localhost:9000/admin/advisory", {
+      .post("http://3.27.218.228:9000/admin/advisory", {
         announcement,
         expirationHours,
         expirationMinutes,
@@ -57,7 +57,7 @@ const CreateAdvisory = () => {
     setExpirationHours(0);
     setExpirationMinutes(0);
     setExpirationSeconds(0);
-    setSelectedDistrict("All");
+    setSelectedDistrict("Disctrict 1");
   };
 
   return (
