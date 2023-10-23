@@ -80,7 +80,7 @@ const AdminAdvisory = () => {
         <div className="flex flex-row justify-center item-center">
           <CreateAdvisory />
         </div>
-        <div className="flex flex-row justify-center item-center my-4">
+        <div className="flex flex-row justify-center item-center my-4 w-auto">
           <div className="border-2 border-gray-300 w-5/6">
             <table className="min-w-full bg-white border border-gray-300">
               <thead className="bg-gray-100">
@@ -108,7 +108,7 @@ const AdminAdvisory = () => {
 
                   return (
                     <tr key={index}>
-                      <td className="py-2 px-4 border-b w-2/3">
+                      <td className="py-2 px-4 border-b w-1/3">
                         {announcement.announcement}
                       </td>
                       <td className="py-2 px-4 border-b text-center">
@@ -122,9 +122,9 @@ const AdminAdvisory = () => {
                         {isExpired ? "Not Active" : "Active"}
                       </td>
                       <td className="py-2 px-4 border-b text-center text-red-500 cursor-pointer">
-                        <h3 onClick={() => deleteAdvisory(announcement.id)}>
+                        <h4 onClick={() => deleteAdvisory(announcement.id)}>
                           DELETE
-                        </h3>
+                        </h4>
                       </td>
                     </tr>
                   );

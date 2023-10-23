@@ -43,10 +43,10 @@ const HomePage = () => {
           />
         </div>
         <div className="profile flex flex-col md:flex-row items-center">
-          <div className="md:mr-16 mb-4 md:mb-0 rounded-full overflow-hidden bg-orange-100 p-2">
-            <img src={userlogo} alt="$" className="h-24 w-24" />
+          <div className="img-div md:mr-16 mb-4 md:mb-0 rounded-full overflow-hidden bg-orange-100 p-2">
+            <img src={userlogo} alt="$" className="img-logo h-24 w-24" />
           </div>
-          <div>
+          <div className="text-profile">
             <h3 className="text-xl font-bold mb-2">Username: {username}</h3>
             <h3 className="text-lg font-medium mb-2">
               Role: {role} at {district}

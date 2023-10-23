@@ -1,7 +1,7 @@
 .homepage {
-  height: auto;
+  height: 100vh;
   width: auto;
-  /* border: 1px solid black; */
+  /* padding: 2rem; */
 }
 
 .profile {
@@ -22,5 +22,15 @@
 @media screen and (max-width: 768px) {
   .right {
     width: 80%;
+  }
+  .homepage{
+    height: 100vh;
+  }
+  .profile {
+    width: 90%;
+    padding: 10px 16px;
+  }
+  .text-profile h3{
+    font-size: medium;
   }
 }

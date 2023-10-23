@@ -2,18 +2,42 @@
     background-color: rgb(255, 255, 255);
     margin-top: 1%;
     width: 70%;
-    height: 250px;
+    height: 300px;
     overflow-y: scroll;
 }
 .video{
-    width: 80%;
-    height: 450px;
+    width: 70%;
+    height: 550px;
+}
+.livestream{
+    height: auto;
 }
 
 .container-comment{
     /* background-color: orange; */
     height: 300px;
+    margin-bottom: 10px;
 }
 .live-end{
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+@media screen and (max-width: 1200px){
+    .homepage{
+        height: auto;
+    }
+}
+@media screen and (max-width: 800px){
+    .livestream{
+        height: 100vh;
+    }
+    .video{
+        height: 300px;
+        width: 90%;
+    }
+    .comments{
+        margin-top: 2%;
+        width: 95%;
+        height: 300px;
+        /* overflow-y: scroll; */
+    }
 }

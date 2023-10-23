@@ -20,14 +20,14 @@ const Sidebar = ({ isSidebarOpen }) => {
         isSidebarOpen ? "active" : ""
       }`}
     >
-      <div className="logo mb-4">
+      <div className="logo mb-12">
         <a href="/admin/home">
         <img src={firesense} alt="Logo" className="w-full" />
         </a>
       </div>
 
       {/* Links */}
-      <div className="flex flex-col space-y-3 pr-2 w-94 ">
+      <div className="try flex flex-col space-y-4 pr-2 w-full ">
         <a
           href="/admin/home"
           className="text-xl font-semibold hover:text-orange-300 p-2 bg-orange-700 rounded-r border-r-16 border-orange-600 py-4 px-8"
