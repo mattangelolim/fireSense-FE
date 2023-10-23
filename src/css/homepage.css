@@ -9,7 +9,7 @@
   border-radius: 0.5rem;
   background-color: #f3f4f7;
   background-image: linear-gradient(315deg, #f3f4f7 0%, #caccd1 74%);
-  width: 60%;
+  width: 500px;
   padding: 2rem 4rem;
   margin: 0 auto;
 }
@@ -27,7 +27,7 @@
     height: 100vh;
   }
   .profile {
-    width: 90%;
+    width: 400px;
     padding: 10px 16px;
   }
   .text-profile h3{

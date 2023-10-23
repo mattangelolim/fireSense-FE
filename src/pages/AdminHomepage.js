@@ -42,8 +42,8 @@ const HomePage = () => {
           />
         </div>
         <div className="profile flex flex-col items-center">
-          <div className="rounded-full overflow-hidden mr-16 bg-black p-2">
-            <img src={userlogo} alt="$" className="h-24 w-24"></img>
+          <div className="rounded-full overflow-hidden mr-16 bg-gray-200 p-2">
+            <img src={userlogo} alt="$" className="h-28 w-28"></img>
           </div>
           <div className="text-profile">
             <h3 className="text-xl font-bold mb-2">Username: {username}</h3>

@@ -15,7 +15,7 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="flex bg-gray-200">
+    <div className="contact-page flex bg-gray-200">
       <Sidebar className="left w-1/6" isSidebarOpen={isSidebarOpen} />
       <div className="right w-5/6">
         <Header />

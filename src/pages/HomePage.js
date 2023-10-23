@@ -42,9 +42,9 @@ const HomePage = () => {
             onClick={handleSidebarToggle}
           />
         </div>
-        <div className="profile flex flex-col md:flex-row items-center">
-          <div className="img-div md:mr-16 mb-4 md:mb-0 rounded-full overflow-hidden bg-orange-100 p-2">
-            <img src={userlogo} alt="$" className="img-logo h-24 w-24" />
+        <div className="profile flex flex-col items-center">
+        <div className="rounded-full overflow-hidden mr-16 bg-white p-2">
+            <img src={userlogo} alt="$" className="img-logo h-28 w-28" />
           </div>
           <div className="text-profile">
             <h3 className="text-xl font-bold mb-2">Username: {username}</h3>
