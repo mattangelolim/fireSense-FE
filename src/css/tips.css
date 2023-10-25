@@ -14,7 +14,9 @@
   width: 1400px;
   background-color: red;
 } */
-
+.contact-page{
+  height: 100vh;
+}
 h1 {
   color: red;
 }

@@ -1,6 +1,24 @@
 .broadcast-table{
     border: 1px solid black;
+    width: auto;
 }
-.broadcast-container{
-    /* border: 1px solid orange; */
+
+.Broadcast{
+    height: 100vh;
+}
+
+@media screen and (min-width:500px) and (max-width: 1024px){
+    .btn-broad{
+        border: 1px solid black;
+        font-size: small;
+        padding: 2px 2px;
+    }
+    .t-body td{
+        font-size: small;
+        color: red;
+    }
+    .text{
+        /* color: blue; */
+        font-size: small;
+    }
 }

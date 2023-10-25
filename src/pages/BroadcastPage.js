@@ -136,15 +136,15 @@ const BroadcastPage = () => {
               <tbody className="bg-white divide-y divide-gray-200 dark:divide-neutral-600">
                 {liveData.map((live) => (
                   <tr key={live.id}>
-                    <td className="text-center w-16">{live.id}</td>
-                    <td className="text-center w-16">{live.username}</td>
-                    <td className=" w-32 break-all">{live.message}</td>
-                    <td className="text-center w-16">{live.startLive}</td>
-                    <td className="text-center w-16">{live.endLive || 0}</td>
-                    <td className="text-center w-16">{live.duration || 0}</td>
-                    <td className="text-center w-20">
+                    <td className="text text-center w-16 font-bold">{live.id}</td>
+                    <td className="text text-center w-16">{live.username}</td>
+                    <td className="text w-32 break-all">{live.message}</td>
+                    <td className="text text-center w-16">{live.startLive}</td>
+                    <td className="text text-center w-16">{live.endLive || 0}</td>
+                    <td className="text text-center w-16">{live.duration || 0}</td>
+                    <td className="text text-center w-20">
                       <button
-                        className={`${
+                        className={`btn-broad ${
                           live.endLive
                             ? "bg-red-500 hover:bg-red-700"
                             : "bg-blue-500 hover:bg-blue-700"

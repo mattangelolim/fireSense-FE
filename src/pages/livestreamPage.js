@@ -67,7 +67,7 @@ const LivestreamPage = () => {
   };
   return (
     <div>
-      <div className="homepage flex bg-gray-200">
+      <div className="livestream flex bg-gray-300">
         <SidebarAdmin className="left w-1/6" isSidebarOpen={isSidebarOpen} />
         <div className="right w-5/6">
           <Header />
@@ -103,7 +103,7 @@ const LivestreamPage = () => {
             </h3>
 
             <div className="container-comment w-full flex border-solid border-1 border-orange-600 p-2 justify-center items-center">
-              <div className="comments p-4 w-1/2" ref={commentsRef}>
+              <div className="comments p-4 w-1/2 mb-2" ref={commentsRef}>
                 <h2 className="mb-4 text-lg font-bold">Audience Comments:</h2>
                 {comments.map((commentObject, index) => (
                   <div key={index} className="mb-2">

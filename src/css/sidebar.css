@@ -2,7 +2,7 @@
   background-color: #bf033b;
   background-image: linear-gradient(315deg, #bf033b 0%, #ffc719 74%);
   /* border: 1px solid red; */
-  height: 100vh;
+  height: auto;
   width: 500px;
 }
 .logo {
@@ -11,8 +11,11 @@
 }
 @media screen and (min-width: 1024px) and (max-width: 1440px) {
   .sidebar {
-    display: 25%;
-    height: 100vh;
+    height: auto;
+  }
+  .try a{
+    font-size: medium;
+
   }
 }
 
@@ -23,6 +26,7 @@
     width: 300px;
     transition: left 1s; 
     z-index: 999; 
+    height: 100vh;
   }
 
   .sidebar.active {

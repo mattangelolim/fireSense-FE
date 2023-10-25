@@ -61,7 +61,7 @@ const CreateAdvisory = () => {
   };
 
   return (
-    <div className="advisory mx-10 py-10 px-10 bg-white h-1/3 w-1/2">
+    <div className="advisory mx-10 py-10 px-10 bg-white h-1/3 w-2/3">
       {" "}
       {/* Adjust margin as needed */}
       <h2 className="text-2xl font-bold mb-2">
