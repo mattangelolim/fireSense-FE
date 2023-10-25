@@ -52,7 +52,7 @@ const HomePage = () => {
             <h3>
               Streaming Key:{" "}
               <span onClick={toggleKeyVisibility} style={{ cursor: "pointer" }}>
-                {showKey ? "E1JZo-NTfjB" : "**********"}
+                {showKey ? "InvjM-pBgMe" : "**********"}
               </span>
             </h3>
           </div>
