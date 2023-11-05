@@ -5,7 +5,7 @@ import "../css/blink.css";
 
 const MovingAverageGraph = () => {
   const [movingAverage, setMovingAverage] = useState([]);
-  const [lastData, setLastData] = useState([]);
+//   const [lastData, setLastData] = useState([]);
   const [average, setAverage] = useState(0);
   const [status, setStatus] = useState("Stable trend");
   const [year, setYear] = useState(2023);
@@ -29,7 +29,7 @@ const MovingAverageGraph = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       axios
-        .get("http://localhost:9000/api/moving-average", {
+        .get("http://3.27.218.228:9000/api/moving-average", {
           params: {
             year: year,
             district: district,

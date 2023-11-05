@@ -8,7 +8,7 @@ const Header = () => {
   useEffect(() => {
     // Fetch announcements when the component mounts
     axios
-      .get("http://localhost:9000/api/announcements")
+      .get("http://3.27.218.228:9000/api/announcements")
       .then((response) => {
         setAnnouncements(response.data.announcements);
         console.log(response.data.announcements);
