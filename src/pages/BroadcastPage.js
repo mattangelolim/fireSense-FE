@@ -25,7 +25,7 @@ const BroadcastPage = () => {
     try {
       if (endLive) {
         const response = await axios.post(
-          "http://3.27.218.228:9000/api/live/delete",
+          "http://localhost:9000/api/live/delete",
           {
             id: id,
           }
@@ -39,7 +39,7 @@ const BroadcastPage = () => {
         }
       } else {
         const response = await axios.post(
-          "http://3.27.218.228:9000/api/broadcast/update",
+          "http://localhost:9000/api/broadcast/update",
           {
             id: id,
           }
@@ -68,7 +68,7 @@ const BroadcastPage = () => {
 
   useEffect(() => {
     axios
-      .get("http://3.27.218.228:9000/api/show/live")
+      .get("http://localhost:9000/api/show/live")
       .then((response) => {
         setLiveData(response.data.data);
       })

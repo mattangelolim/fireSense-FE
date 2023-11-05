@@ -27,7 +27,7 @@ const AdminAdvisory = () => {
   useEffect(() => {
     // Fetch announcements when the component mounts
     axios
-      .get("http://3.27.218.228:9000/api/all/announcements")
+      .get("http://localhost:9000/api/all/announcements")
       .then((response) => {
         setAnnouncements(response.data.announcements);
         // console.log(response.data.announcements);
@@ -44,7 +44,7 @@ const AdminAdvisory = () => {
 
   const deleteAdvisory = (id) => {
     axios
-      .post("http://3.27.218.228:9000/api/advisory/delete", {
+      .post("http://localhost:9000/api/advisory/delete", {
         id: id,
       })
       .then((response) => {

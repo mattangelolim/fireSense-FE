@@ -20,6 +20,7 @@ import UserFaqsPage from "./pages/resident/userFAQsPage";
 import LiveStream from "./pages/livestreamPage";
 import LiveStreamUser from "./pages/livestreamPageUser";
 import Broadcast from "./pages/BroadcastPage";
+import MovingAverageGraph from "./components/MovingAverageGraph.js";
 // import Viewer from "./components/viewer";
 
 function App() {
@@ -138,6 +139,8 @@ function App() {
             }
           />
           <Route path="/account/activation" element={<ActivationPage />} />
+          {/* <Route path="/moving" element={<MovingAverageGraph />} /> */}
+
 
           {/* Add a catch-all route */}
           <Route element={<Navigate to="/" />} />

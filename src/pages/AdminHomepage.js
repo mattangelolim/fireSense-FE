@@ -8,6 +8,7 @@ import leftarrow from "../assets/imgs/left-arrow.png";
 import Firecasesgraph from "../components/FireCasesGraph";
 import userlogo from "../assets/imgs/user.png";
 import Cookies from "js-cookie";
+import MovingAverageGraph from "../components/MovingAverageGraph";
 
 const HomePage = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -25,7 +26,7 @@ const HomePage = () => {
     console.log(isSidebarOpen);
   };
   return (
-    <div className="homepage flex bg-gray-200">
+    <div className="homepageAdmin flex bg-gray-200">
       <SidebarAdmin className="w-1/6" isSidebarOpen={isSidebarOpen} />
       <div className="right w-5/6">
         <Header />
@@ -41,7 +42,7 @@ const HomePage = () => {
             onClick={handleSidebarToggle}
           />
         </div>
-        <div className="profile flex flex-col items-center">
+        {/* <div className="profile flex flex-col items-center">
           <div className="rounded-full overflow-hidden mr-16 bg-gray-200 p-2">
             <img src={userlogo} alt="$" className="h-28 w-28"></img>
           </div>
@@ -56,9 +57,11 @@ const HomePage = () => {
               </span>
             </h3>
           </div>
-        </div>
+        </div> */}
+       
 
         <Firecasesgraph />
+        <MovingAverageGraph />
       </div>
     </div>
   );

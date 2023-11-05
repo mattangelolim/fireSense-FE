@@ -29,7 +29,7 @@ const LoginPage = () => {
   const HandleRegister = async (e) => {
     e.preventDefault();
 
-    const URL = "http://3.27.218.228:9000/user/register";
+    const URL = "http://localhost:9000/user/register";
 
     try {
       const response = await axios.post(URL, {
@@ -60,7 +60,7 @@ const LoginPage = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    const BaseURL = "http://3.27.218.228:9000/user/login";
+    const BaseURL = "http://localhost:9000/user/login";
 
     try {
       const response = await axios.post(BaseURL, {

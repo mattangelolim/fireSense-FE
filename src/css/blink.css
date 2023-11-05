@@ -1,0 +1,15 @@
+@keyframes blink {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: .2;
+    }
+  }
+  
+  .animate-blink {
+    animation: blink 1s infinite;
+    transform: scale(1.02);
+
+  }
+  
