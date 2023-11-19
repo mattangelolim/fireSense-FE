@@ -94,7 +94,7 @@ const LivestreamPage = () => {
                 title="livestream"
                 frameborder="0"
                 allowfullscreen
-                src="https://demo.nanocosmos.de/nanoplayer/embed/1.3.3/nanoplayer.html?group.id=27fbdb8f-d857-4459-8f94-5df332234c8b&options.adaption.rule=deviationOfMean2&startIndex=0&playback.latencyControlMode=classic"
+                src="https://demo.nanocosmos.de/nanoplayer/embed/1.3.3/nanoplayer.html?group.id=d5cf9a19-7f17-4f9e-b50e-8a4a2faf1a07&options.adaption.rule=deviationOfMean2&startIndex=0&playback.latencyControlMode=classic"
               ></iframe>
             </div>
             <h3

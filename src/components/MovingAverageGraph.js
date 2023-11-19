@@ -111,7 +111,7 @@ const MovingAverageGraph = () => {
             }`}
         >
           <h1 className="text-green-500 text-2xl">Green Warning</h1>
-          <p className="text-justify">Low fire risk, few cases detected.</p>
+          <p className="text-justify">Low fire risk, stable moving average</p>
         </div>
 
         <div
@@ -119,7 +119,7 @@ const MovingAverageGraph = () => {
             }`}
         >
           <h1 className="text-yellow-500 text-2xl">Yellow Warning</h1>
-          <p>Moderate risk, 10 & above cases!</p>
+          <p>Moderate risk, 10 & above moving average!</p>
         </div>
 
         <div
@@ -127,7 +127,7 @@ const MovingAverageGraph = () => {
             }`}
         >
           <h1 className="text-orange-500 text-2xl">Orange Warning</h1>
-          <p>Significant risk, 15 & above cases!</p>
+          <p>Significant risk, 15 & above moving average!</p>
         </div>
 
         <div
