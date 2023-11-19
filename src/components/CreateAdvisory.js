@@ -8,6 +8,7 @@ const CreateAdvisory = () => {
   const [expirationMinutes, setExpirationMinutes] = useState(0);
   const [expirationSeconds, setExpirationSeconds] = useState(0);
   const [district, setSelectedDistrict] = useState("Disctrict 1");
+  const [alert, setAlert] = useState("Alert 1")
 
   // const [announcements, setAnnouncements] = useState([]);
 
@@ -43,6 +44,7 @@ const CreateAdvisory = () => {
         expirationMinutes,
         expirationSeconds,
         district,
+        alert
       })
       .then((response) => {
         alert("ADVISORY CREATED SUCCESSFULLY");
@@ -144,6 +146,20 @@ const CreateAdvisory = () => {
                 <option value="District 4">District 4</option>
                 <option value="District 5">District 5</option>
                 <option value="District 6">District 6</option>
+              </select>
+            </div>
+            <div className="flex flex-col space-y-2 mb-4">
+              <label className="font-bold">Select Alert:</label>
+              <select
+                id="alert"
+                value={alert}
+                onChange={(e) => setAlert(e.target.value)}
+                className="border border-gray-300 px-2 py-1 rounded w-64 text-lg"
+                required
+              >
+                <option value="District 1">Alert 1</option>
+                <option value="District 2">Alert 2</option>
+                <option value="District 3">Alert 3</option>
               </select>
             </div>
             <button
