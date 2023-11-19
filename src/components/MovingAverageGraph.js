@@ -28,7 +28,7 @@ const MovingAverageGraph = () => {
 
   useEffect(() => {
     // Make a request to the API endpoint
-    axios.get('http://localhost:9000/api/moving-average/prediction')
+    axios.get('http://3.27.218.228:9000/api/moving-average/prediction')
       .then(response => {
         // Assuming the response data is an array
         setChartData(response.data);
