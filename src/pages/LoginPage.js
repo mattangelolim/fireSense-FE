@@ -18,7 +18,7 @@ const LoginPage = () => {
   const [nameReg, setNameReg] = useState("");
   const [districtReg, setDistrictReg] = useState("");
   const [passwordReg, setPasswordReg] = useState("");
-  const user_type = "Resident";
+  const [user_type, setUserType] = useState("");
 
   const navigate = useNavigate();
 
@@ -70,10 +70,10 @@ const LoginPage = () => {
 
       if (response.data) {
         const user_type = response.data.user.user_type;
-        const name = response.data.user.name
-        const district = response.data.user.district
+        const name = response.data.user.name;
+        const district = response.data.user.district;
         console.log(user_type);
-        console.log(response.data)
+        console.log(response.data);
 
         Cookies.set("loggedIn", "true");
         Cookies.set("email", email);
@@ -299,6 +299,27 @@ const LoginPage = () => {
                     <option value="District 4">District 4</option>
                     <option value="District 5">District 5</option>
                     <option value="District 6">District 6</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                    What user are you?
+                  </label>
+                  <select
+                    onChange={(e) => {
+                      setUserType(e.target.value);
+                    }}
+                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    required=""
+                  >
+                    <option value="" disabled selected>
+                      Select Role
+                    </option>
+                    <option value="District 1">Resident</option>
+                    <option value="District 2">Police</option>
+                    <option value="District 3">Medical Personnel</option>
+                    <option value="District 4">Firefighter</option>
+                    <option value="District 5">Brgy. Heads</option>
                   </select>
                 </div>
 

@@ -4,6 +4,14 @@ import Sidebar from "../../components/Sidebar";
 import Header from "../../components/Header";
 import arrow from "../../assets/imgs/right-arrow.png";
 import leftarrow from "../../assets/imgs/left-arrow.png";
+import fireSafety1 from "../../assets/imgs/FireSafetyBasics_1.JPG";
+import fireSafety2 from "../../assets/imgs/FireSafetyBasics_2.JPG";
+import fireSafety3 from "../../assets/imgs/FireSafetyBasics_3.JPG";
+import fireSafety4 from "../../assets/imgs/FireSafetyBasics_4.JPG";
+import fireSafety5 from "../../assets/imgs/FireSafetyBasics_5.JPG";
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 const UserTipsPage = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -11,6 +19,23 @@ const UserTipsPage = () => {
   const handleSidebarToggle = () => {
     setIsSidebarOpen(!isSidebarOpen);
     console.log(isSidebarOpen);
+  };
+
+  const images = [
+    fireSafety1,
+    fireSafety2,
+    fireSafety4,
+    fireSafety3,
+    fireSafety5,
+  ];
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
   };
   return (
     <div className="admin-tips flex bg-gray-200">
@@ -40,7 +65,19 @@ const UserTipsPage = () => {
             section, we'll cover various aspects of fire safety, from prevention
             to emergency preparedness.
           </p>
-          <h2 className="text-xl font-bold mb-2">1. Fire Safety Basics</h2>
+          <Slider {...settings} className="w-full">
+            {images.map((image, index) => (
+              <div key={index} className="flex justify-center items-center">
+                <img
+                  src={image}
+                  alt={`Slide ${index + 1}`}
+                  className="rounded-lg shadow-md justify-center align-center"
+                />
+              </div>
+            ))}
+          </Slider>
+
+          <h2 className="text-xl font-bold mb-2 mt-8">1. Fire Safety Basics</h2>
           <p className="mb-4">
             Fire safety is all about taking proactive steps to prevent fires and
             knowing how to react if one occurs. Here are some fundamental
@@ -155,6 +192,7 @@ const UserTipsPage = () => {
           </p>
 
           <p className="font-bold mt-4">Stay safe and informed!</p>
+          
         </div>
       </div>
     </div>

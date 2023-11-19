@@ -8,6 +8,7 @@ import leftarrow from "../assets/imgs/left-arrow.png";
 import Firecasesgraph from "../components/FireCasesGraph";
 import userlogo from "../assets/imgs/user2.png";
 import Cookies from "js-cookie";
+import MovingAverageGraph from "../components/MovingAverageGraph";
 
 const HomePage = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -26,11 +27,11 @@ const HomePage = () => {
     console.log(isSidebarOpen);
   };
   return (
-    <div className="homepage flex bg-gray-200">
+    <div className="homepageAdmin flex bg-gray-200">
       <Sidebar className="left w-1/6" isSidebarOpen={isSidebarOpen} />
       <div className="right w-5/6">
         <Header />
-        <div
+        {/* <div
           className={`hidden md:flex bg-gray-200 py-8 cursor-pointer absolute top-1/2 transform -translate-y-1/2 left-0 justify-center items-center hidden rounded-tr rounded-br ${
             isSidebarOpen ? "active" : ""
           }`}
@@ -53,8 +54,9 @@ const HomePage = () => {
             </h3>
             <h3 className="text-base font-normal mb-2">Email: {email}</h3>
           </div>
-        </div>
+        </div> */}
         <Firecasesgraph />
+        <MovingAverageGraph />
       </div>
     </div>
   );

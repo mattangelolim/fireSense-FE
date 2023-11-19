@@ -5,7 +5,7 @@ import "../css/blink.css";
 
 const MovingAverageGraph = () => {
   const [movingAverage, setMovingAverage] = useState([]);
-  //   const [lastData, setLastData] = useState([]);
+  const [chartData, setChartData] = useState([]);
   const [average, setAverage] = useState(0);
   const [status, setStatus] = useState("Stable trend");
   const [year, setYear] = useState(2023);
@@ -25,6 +25,18 @@ const MovingAverageGraph = () => {
       setDistrict(value);
     }
   };
+
+  useEffect(() => {
+    // Make a request to the API endpoint
+    axios.get('http://localhost:9000/api/moving-average/prediction')
+      .then(response => {
+        // Assuming the response data is an array
+        setChartData(response.data);
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -68,7 +80,28 @@ const MovingAverageGraph = () => {
       data: movingAverage,
     },
   ];
-  console.log(average)
+
+  const chartSeries2 = [
+    {
+      name: "Moving Averages",
+      data: chartData,
+    },
+  ];
+
+  const chartOptions2 = {
+    chart: {
+      type: 'line',
+    },
+    series: [
+      {
+        name: 'Data',
+        data: chartData,
+      },
+    ],
+    xaxis: {
+      categories: Array.from({ length: chartData.length }, (_, i) => (2017 + i).toString()), // Assuming the data starts from 2017
+    },
+  };
 
   return (
     <div>
@@ -149,8 +182,8 @@ const MovingAverageGraph = () => {
           </h2>
 
           <Chart
-            options={chartOptions}
-            series={chartSeries}
+            options={chartOptions2}
+            series={chartSeries2}
             type="area"
             height={350}
             className="w-full"
