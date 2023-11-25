@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Chart from "react-apexcharts";
 import "../css/blink.css";
+import fireAlarm from "../assets/imgs/alarm.png"
 
 const MovingAverageGraph = () => {
   const [movingAverage, setMovingAverage] = useState([]);
@@ -23,6 +24,37 @@ const MovingAverageGraph = () => {
     const value = parseInt(e.target.value);
     if (value >= 1 && value <= 6) {
       setDistrict(value);
+    }
+  };
+
+  const handleAlarm = async () => {
+    try {
+      const response = await axios.post(`http://3.27.218.228:9000/api/message?year=${year}&district=${district}&values=${average}`, {
+        params: {
+          year: year,
+          district: district,
+          values: average,
+        }
+      });
+
+      console.log(response)
+
+      if (response.status === 200) {
+        window.alert(`Warning Sent to District ${district}`);
+      } else if (response.status === 400) {
+        window.alert("These cases are not present");
+      } else if (response.status === 400) {
+        window.alert("The cases are too low to issue a warning");
+      }
+    } catch (error) {
+      if (error.response.status === 404) {
+        window.alert("The cases are too low to issue a warning");
+      } else if (error.response.status === 400) {
+        window.alert("These are not the present cases");
+      } else {
+
+        console.error('Error making API request:', error.message);
+      }
     }
   };
 
@@ -141,6 +173,13 @@ const MovingAverageGraph = () => {
       <div className="flex">
 
         <div className="flex flex-col justify-center items-center w-[48%] m-4 bg-white p-8 border-2 border-yellow-500 mx-auto my-4">
+          <div className="flex justify-center items-center p-2">
+          <button onClick={handleAlarm} className="w-8 mr-2">
+            <img src={fireAlarm} alt="#" />
+          </button>
+          <p className="text-gray-500">Only click this button when it is orange warning above and the year is present.</p>
+          </div>
+
           <h2 className="text-xl font-bold mb-4">
             Moving Average Graph of Fire Cases
           </h2>
@@ -166,6 +205,7 @@ const MovingAverageGraph = () => {
                 className="border border-gray-300 rounded px-3 py-2 w-20"
               />
             </div>
+
           </div>
 
           <Chart

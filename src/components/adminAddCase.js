@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "../css/modal.css";
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
 
 const AddCaseModal = ({ isOpen, onClose }) => {
     const [year, setYear] = useState("");
