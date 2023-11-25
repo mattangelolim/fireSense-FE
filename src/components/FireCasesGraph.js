@@ -89,11 +89,14 @@ const FireCasesGraph = () => {
           value={selectedYear || ""}
         >
           <option value="">All</option>
-          {years.map((year) => (
-            <option key={year} value={year}>
-              {year}
-            </option>
-          ))}
+          {years
+            .slice()
+            .sort((a, b) => a - b) // Sort in ascending order
+            .map((year) => (
+              <option key={year} value={year}>
+                {year}
+              </option>
+            ))}
         </select>
         <label htmlFor="viewFilter">Select View By: </label>
         <select

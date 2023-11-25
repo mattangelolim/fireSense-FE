@@ -3,7 +3,7 @@
     rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 .advisory-page{
-  height: 100vh;
+  height: auto;
 }
 @media screen and (min-width: 1024px) and (max-width: 1440px){
   .right{
