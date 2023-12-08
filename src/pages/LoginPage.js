@@ -315,11 +315,11 @@ const LoginPage = () => {
                     <option value="" disabled selected>
                       Select Role
                     </option>
-                    <option value="District 1">Resident</option>
-                    <option value="District 2">Police</option>
-                    <option value="District 3">Medical Personnel</option>
-                    <option value="District 4">Firefighter</option>
-                    <option value="District 5">Brgy. Heads</option>
+                    <option value="Resident">Resident</option>
+                    <option value="Police">Police</option>
+                    <option value="Medical Personnel">Medical Personnel</option>
+                    <option value="Firefighter">Firefighter</option>
+                    <option value="Brgy. Heads">Brgy. Heads</option>
                   </select>
                 </div>
 

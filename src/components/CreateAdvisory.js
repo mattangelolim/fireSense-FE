@@ -10,21 +10,6 @@ const CreateAdvisory = () => {
   const [district, setSelectedDistrict] = useState("Disctrict 1");
   const [alert, setAlert] = useState("Alert 1")
 
-  // const [announcements, setAnnouncements] = useState([]);
-
-  // useEffect(() => {
-  //   // Fetch announcements when the component mounts
-  //   axios
-  //     .get("http://3.27.218.228:9000/api/all/announcements")
-  //     .then((response) => {
-  //       setAnnouncements(response.data.announcements);
-  //       console.log(response.data.announcements);
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error fetching announcements:", error);
-  //     });
-  // }, []);
-
   const handleDistrictChange = (e) => {
     setSelectedDistrict(e.target.value);
   };
@@ -33,33 +18,32 @@ const CreateAdvisory = () => {
     setAnnouncement(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Send POST request using Axios
-    axios
-      .post("http://3.27.218.228:9000/admin/advisory", {
+  
+    try {
+      // Send POST request using Axios
+      const response = await axios.post("http://3.27.218.228:9000/admin/advisory", {
         announcement,
         expirationHours,
         expirationMinutes,
         expirationSeconds,
-        district,
-        alert
-      })
-      .then((response) => {
-        alert("ADVISORY CREATED SUCCESSFULLY");
-        window.location.reload();
-        console.log("Advisory created:", response.data);
-      })
-      .catch((error) => {
-        console.error("Error creating advisory:", error);
+        district:district,
+        alert:alert
       });
-
+  
+      window.alert("ADVISORY CREATED SUCCESSFULLY");
+      window.location.reload();
+      console.log("Advisory created:", response.data);
+    } catch (error) {
+      console.error("Error creating advisory:", error);
+    }
+  
     setAnnouncement("");
     setExpirationHours(0);
     setExpirationMinutes(0);
     setExpirationSeconds(0);
-    setSelectedDistrict("Disctrict 1");
+    setSelectedDistrict("District 1");
   };
 
   return (
@@ -157,9 +141,9 @@ const CreateAdvisory = () => {
                 className="border border-gray-300 px-2 py-1 rounded w-64 text-lg"
                 required
               >
-                <option value="District 1">Alert 1</option>
-                <option value="District 2">Alert 2</option>
-                <option value="District 3">Alert 3</option>
+                <option value="Alert 1">Alert 1</option>
+                <option value="Alert 2">Alert 2</option>
+                <option value="Alert 3">Alert 3</option>
               </select>
             </div>
             <button
