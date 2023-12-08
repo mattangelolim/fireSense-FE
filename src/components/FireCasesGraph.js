@@ -110,8 +110,8 @@ const FireCasesGraph = () => {
         </select>
       </div>
 
-      <div className="flex flex-row">
-        <div className="my-4 mx-4 bg-white p-8 border-2 border-yellow-500 w-1/2">
+      <div className="graph flex flex-row">
+        <div className="graph-1 my-4 mx-4 bg-white p-8 border-2 border-yellow-500 w-1/2">
           <h2>Fire Cases Graph In Manila</h2>
           <Chart
             options={chartOptions}
@@ -120,7 +120,7 @@ const FireCasesGraph = () => {
             height={350}
           />
         </div>
-        <div className="my-4 mx-4 bg-white p-8 border-2 border-yellow-500 w-1/2">
+        <div className="graph-2 my-4 mx-4 bg-white p-8 border-2 border-yellow-500 w-1/2">
           <h2>Fire Cases Heat Map</h2>
           <Chart
             options={chartOptions}

@@ -137,7 +137,7 @@ const MovingAverageGraph = () => {
 
   return (
     <div>
-      <div className="flex m-4 ">
+      <div className="ma-graph flex m-4 ">
         <div
           className={`warnings flex flex-col items-center border-2 border-green-500 ${average < 10 ? "animate-blink" : ""
             }`}
@@ -170,9 +170,9 @@ const MovingAverageGraph = () => {
           <p>Critical situation, high cases !.</p>
         </div>
       </div>
-      <div className="flex">
+      <div className="chart-ma flex">
 
-        <div className="flex flex-col justify-center items-center w-[48%] m-4 bg-white p-8 border-2 border-yellow-500 mx-auto my-4">
+        <div className="chart-ma-1 flex flex-col justify-center items-center w-[48%] m-4 bg-white p-8 border-2 border-yellow-500 mx-auto my-4">
 
           <h2 className="text-xl font-bold mb-4">
             Moving Average Graph of Fire Cases
@@ -210,7 +210,7 @@ const MovingAverageGraph = () => {
             className="w-full"
           />
         </div>
-        <div className="flex flex-col justify-center items-center w-[48%] m-4 bg-white p-8 border-2 border-yellow-500 mx-auto my-4">
+        <div className="chart-ma-1 flex flex-col justify-center items-center w-[48%] m-4 bg-white p-8 border-2 border-yellow-500 mx-auto my-4">
           <h2 className="text-xl font-bold mb-4">
             Predicted Value of Fire Cases Next Year
           </h2>

@@ -51,3 +51,38 @@
     @apply text-xl font-semibold;
   }
 }
+
+@media screen and  (max-width: 800px) {
+.graph{
+  display: block;
+  padding: 0;
+  overflow-x: scroll;
+}
+.graph-1{
+  width: 100%;
+  margin: 0;
+  margin-bottom: 10px;
+}
+.graph-2{
+  width: 100%;
+  margin: 0;
+}
+.ma-graph{
+  margin: 0;
+  margin-top: 10px;
+  overflow-x: scroll;
+}
+.warnings h1{
+  font-size: medium;
+}
+.warnings p{
+  font-size: small;
+}
+.chart-ma{
+  display: block;
+  padding: 0;
+}
+.chart-ma-1{
+  width: 100%;
+}
+}
