@@ -58,13 +58,16 @@
   padding: 0;
   overflow-x: scroll;
 }
+.graph h2{
+  font-size: medium;
+}
 .graph-1{
-  width: 100%;
+  width: 500px;
   margin: 0;
   margin-bottom: 10px;
 }
 .graph-2{
-  width: 100%;
+  width: 500px;
   margin: 0;
 }
 .ma-graph{
@@ -80,9 +83,14 @@
 }
 .chart-ma{
   display: block;
+  overflow-x: scroll;
   padding: 0;
 }
-.chart-ma-1{
-  width: 100%;
+.chart-ma h2{
+  font-size: medium;
 }
+.chart-ma-1{
+  width: 500px;
+}
+
 }

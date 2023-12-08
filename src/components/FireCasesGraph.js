@@ -80,7 +80,7 @@ const FireCasesGraph = () => {
 
   return (
     <div>
-      <div className="m-4 p-4 border-2 border-gray-400 bg-white w-fit rounded-md">
+      <div className=" m-4 p-4 border-2 border-gray-400 bg-white w-fit rounded-md">
         <label htmlFor="yearFilter">Select Year: </label>
         <select
           className="border-2 mr-2"
@@ -114,10 +114,12 @@ const FireCasesGraph = () => {
         <div className="graph-1 my-4 mx-4 bg-white p-8 border-2 border-yellow-500 w-1/2">
           <h2>Fire Cases Graph In Manila</h2>
           <Chart
+            className="chart-fire"
             options={chartOptions}
             series={chartSeries}
             type="line"
             height={350}
+            
           />
         </div>
         <div className="graph-2 my-4 mx-4 bg-white p-8 border-2 border-yellow-500 w-1/2">
