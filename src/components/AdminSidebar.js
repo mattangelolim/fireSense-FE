@@ -22,7 +22,7 @@ const Sidebar = ({ isSidebarOpen }) => {
     >
       <div className="logo mb-12">
         <a href="/admin/home">
-        <img src={firesense} alt="Logo" className="w-full" />
+          <img src={firesense} alt="Logo" className="w-full" />
         </a>
       </div>
 
@@ -58,7 +58,6 @@ const Sidebar = ({ isSidebarOpen }) => {
         >
           Broadcast Live
         </a>
-
       </div>
       <a
         href="/"
@@ -67,7 +66,6 @@ const Sidebar = ({ isSidebarOpen }) => {
       >
         Logout
       </a>
-
     </div>
   );
 };

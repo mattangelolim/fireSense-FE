@@ -2,48 +2,47 @@
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
     rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
-.advisory-page{
-  height: auto;
+.advisory-page {
+  height: 100vh;
 }
-@media screen and (min-width: 1024px) and (max-width: 1440px){
-  .right{
+@media screen and (min-width: 1024px) and (max-width: 1440px) {
+  .right {
     width: 75%;
   }
-  .advisory{
+  .advisory {
     width: 100%;
   }
-  .advisory-page{
+  .advisory-page {
     height: auto;
   }
 }
 
-@media screen and (min-width: 500px) and (max-width: 1024px){
-  .advisory{
+@media screen and (min-width: 500px) and (max-width: 1024px) {
+  .advisory {
     width: 100%;
   }
-  .advisory textarea{
-    height: 280px
+  .advisory textarea {
+    height: 280px;
   }
-  .advisory-page{
+  .advisory-page {
     height: auto;
   }
 }
 @media screen and (max-width: 500px) {
-  .advisory{
+  .advisory {
     width: 100%;
     height: 500px;
     justify-content: center;
     align-items: center;
     margin: 50px 20px;
   }
-  .advisory h2{
+  .advisory h2 {
     font-size: 18px;
   }
-  .advisory input{
+  .advisory input {
     width: 100%;
   }
-  .advisory select{
+  .advisory select {
     width: 100%;
-  }    
-  
+  }
 }

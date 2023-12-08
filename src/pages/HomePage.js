@@ -8,7 +8,7 @@ import leftarrow from "../assets/imgs/left-arrow.png";
 import Firecasesgraph from "../components/FireCasesGraph";
 import userlogo from "../assets/imgs/user2.png";
 import Cookies from "js-cookie";
-import MovingAverageGraph from "../components/MovingAverageGraph";
+import MovingAverageGraph from "../components/MovingAverageGraphUser";
 
 const HomePage = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -31,30 +31,6 @@ const HomePage = () => {
       <Sidebar className="left w-1/6" isSidebarOpen={isSidebarOpen} />
       <div className="right w-5/6">
         <Header />
-        {/* <div
-          className={`hidden md:flex bg-gray-200 py-8 cursor-pointer absolute top-1/2 transform -translate-y-1/2 left-0 justify-center items-center hidden rounded-tr rounded-br ${
-            isSidebarOpen ? "active" : ""
-          }`}
-        >
-          <img
-            className="h-4 w-4 object-contain"
-            src={isSidebarOpen ? leftarrow : arrow}
-            alt="#"
-            onClick={handleSidebarToggle}
-          />
-        </div>
-        <div className="profile flex flex-col items-center">
-        <div className="rounded-full overflow-hidden mr-16 bg-white p-2">
-            <img src={userlogo} alt="$" className="img-logo h-28 w-28" />
-          </div>
-          <div className="text-profile">
-            <h3 className="text-xl font-bold mb-2">Username: {username}</h3>
-            <h3 className="text-lg font-medium mb-2">
-              Role: {role} at {district}
-            </h3>
-            <h3 className="text-base font-normal mb-2">Email: {email}</h3>
-          </div>
-        </div> */}
         <Firecasesgraph />
         <MovingAverageGraph />
       </div>

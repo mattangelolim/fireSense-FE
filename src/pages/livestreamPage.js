@@ -65,6 +65,11 @@ const LivestreamPage = () => {
     setIsSidebarOpen(!isSidebarOpen);
     console.log(isSidebarOpen);
   };
+  const today = new Date(); // Current date
+  const lastLiveDate = new Date(lastLive.createdAt); // Assuming lastLive.createdAt is a valid date string
+
+  // Check if lastLiveDate is greater than or equal to today
+  const shouldRenderH3 = lastLiveDate >= today;
   return (
     <div>
       <div className="livestream flex bg-gray-300">
@@ -90,17 +95,18 @@ const LivestreamPage = () => {
                 title="livestream"
                 frameborder="0"
                 allowfullscreen
-                src="https://demo.nanocosmos.de/nanoplayer/embed/1.3.3/nanoplayer.html?group.id=d5cf9a19-7f17-4f9e-b50e-8a4a2faf1a07&options.adaption.rule=deviationOfMean2&startIndex=0&playback.latencyControlMode=classic"
-              ></iframe>
+                src="https://demo.nanocosmos.de/nanoplayer/embed/1.3.3/nanoplayer.html?group.id=05e47c94-fb92-42f0-a376-7ddd453757aa&options.adaption.rule=deviationOfMean2&startIndex=0&playback.latencyControlMode=classic"></iframe>
             </div>
-            <h3
-              className="live-end bg-white p-2 border border-gray-300 rounded-sm mt-2"
-              style={{ color: lastLive.endLive ? "red" : "orange" }}
-            >
-              {lastLive.endLive !== null
-                ? `Last live ended today, at ${lastLive.endLive}`
-                : `There's a new live started today at ${lastLive.startLive}`}
-            </h3>
+            {shouldRenderH3 && (
+              <h3
+                className="live-end bg-white p-2 border border-gray-300 rounded-sm mt-2"
+                style={{ color: lastLive.endLive ? "red" : "orange" }}
+              >
+                {lastLive.endLive !== null
+                  ? `Last live ended today, at ${lastLive.endLive}`
+                  : `There's a new live started today at ${lastLive.startLive}`}
+              </h3>
+            )}
 
             <div className="container-comment w-full flex border-solid border-1 border-orange-600 p-2 justify-center items-center">
               <div className="comments p-4 w-1/2 mb-2" ref={commentsRef}>
