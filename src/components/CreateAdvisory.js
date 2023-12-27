@@ -20,7 +20,7 @@ const CreateAdvisory = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     try {
       // Send POST request using Axios
       const response = await axios.post("http://3.27.218.228:9000/admin/advisory", {
@@ -28,22 +28,39 @@ const CreateAdvisory = () => {
         expirationHours,
         expirationMinutes,
         expirationSeconds,
-        district:district,
-        alert:alert
+        district: district,
+        alert: alert
       });
-  
+
       window.alert("ADVISORY CREATED SUCCESSFULLY");
       window.location.reload();
       console.log("Advisory created:", response.data);
     } catch (error) {
       console.error("Error creating advisory:", error);
     }
-  
+
     setAnnouncement("");
     setExpirationHours(0);
     setExpirationMinutes(0);
     setExpirationSeconds(0);
     setSelectedDistrict("District 1");
+  };
+
+  const fireAwarenessOptions = [
+    'Pagsabihan ang mga tao na may sunog!',
+    'Tumawag sa 117 para sa tulong.',
+    'Iwasan ang usok mula sa apoy.',
+    'Alamin ang mga escape route sa inyong lugar.',
+    'Magtago sa ilalim ng malamig na tubig kung may sunog.',
+    'Magdala ng fire extinguisher kung posible.',
+    'Huwag kalimutan ang mga alagang hayop sa oras ng sunog.',
+    'Sumunod sa mga tagubilin ng mga rescuers.',
+    'Magtago sa isang secure na lugar.',
+    'Mag-ingat sa mga nasusunog na bagay na maaaring sumabog.',
+  ];
+
+  const handleSelectChange = (e) => {
+    setAnnouncement(e.target.value);
   };
 
   return (
@@ -64,7 +81,20 @@ const CreateAdvisory = () => {
               className="border border-gray-300 px-2 py-1 rounded h-24 text-lg"
               required
             />
+            <select
+              // value={selectedOption}
+              onChange={handleSelectChange}
+              className="border border-gray-300 px-2 py-1 rounded"
+            >
+              <option value="" disabled>Select an option</option>
+              {fireAwarenessOptions.map((option, index) => (
+                <option key={index} value={option}>
+                  {option}
+                </option>
+              ))}
+            </select>
           </div>
+
           <div className="w-auto ml-10">
             <div className="flex flex-col space-y-2 mb-4">
               <label className="font-bold">Expiration Hours:</label>

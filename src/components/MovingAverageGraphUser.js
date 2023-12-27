@@ -1,62 +1,24 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import Chart from "react-apexcharts";
-import "../css/blink.css";
-import fireAlarm from "../assets/imgs/alarm.png"
 
-const MovingAverageGraph = () => {
-  const [movingAverage, setMovingAverage] = useState([]);
+const MovingAverageGraphUser = () => {
+  const [analysisByDistrict, setAnalysisByDistrict] = useState({});
+
   const [chartData, setChartData] = useState([]);
-  const [average, setAverage] = useState(0);
-  const [status, setStatus] = useState("Stable trend");
-  const [year, setYear] = useState(2023);
-  const [district, setDistrict] = useState(1);
 
-
-  const handleYearChange = (e) => {
-    const value = parseInt(e.target.value);
-    if (value >= 2017) {
-      setYear(value);
-    }
-  };
-
-  const handleDistrictChange = (e) => {
-    const value = parseInt(e.target.value);
-    if (value >= 1 && value <= 6) {
-      setDistrict(value);
-    }
-  };
-
-  const handleAlarm = async () => {
-    try {
-      const response = await axios.post(`http://3.27.218.228:9000/api/message?year=${year}&district=${district}&values=${average}`, {
-        params: {
-          year: year,
-          district: district,
-          values: average,
-        }
-      });
-
-      console.log(response)
-
-      if (response.status === 200) {
-        window.alert(`Warning Sent to District ${district}`);
-      } else if (response.status === 400) {
-        window.alert("These cases are not present");
-      } else if (response.status === 400) {
-        window.alert("The cases are too low to issue a warning");
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://3.27.218.228:9000/api/moving-average/text');
+        setAnalysisByDistrict(response.data.analysisByDistrict);
+      } catch (error) {
+        console.error('Error fetching data:', error);
       }
-    } catch (error) {
-      if (error.response.status === 404) {
-        window.alert("The cases are too low to issue a warning");
-      } else if (error.response.status === 400) {
-        window.alert("These are not the present cases");
-      } else {
+    };
 
-        console.error('Error making API request:', error.message);
-      }
-    }
-  };
+    fetchData();
+  }, []);
 
   useEffect(() => {
     // Make a request to the API endpoint
@@ -70,49 +32,7 @@ const MovingAverageGraph = () => {
       });
   }, []);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      axios
-        .get("http://3.27.218.228:9000/api/moving-average", {
-          params: {
-            year: year,
-            district: district,
-          },
-        })
-        .then((response) => {
-          setMovingAverage(response.data.movingAverages);
-          console.log(response.data.movingAverages.slice(-3))
-          setAverage(response.data.movingAverages.slice(-3).reduce((acc, currentValue) => acc + currentValue, 0) / 3);
-
-        })
-        .catch((error) => console.error("Error fetching data:", error));
-    }, 1000);
-
-    return () => clearInterval(interval); // Clean up interval on component unmount
-  }, [year, district]);
-
-  const chartOptions = {
-    xaxis: {
-      title: {
-        text: "Timeframe",
-      },
-    },
-    yaxis: {
-      title: {
-        text: "Cases",
-      },
-      min: 0,
-      max: 30,
-    },
-  };
-
-  const chartSeries = [
-    {
-      name: "Moving Averages",
-      data: movingAverage,
-    },
-  ];
-
+  
   const chartSeries2 = [
     {
       name: "Moving Averages",
@@ -135,82 +55,37 @@ const MovingAverageGraph = () => {
     },
   };
 
-  return (
-    <div>
-      <div className="ma-graph flex m-4 ">
-        <div
-          className={`warnings flex flex-col items-center border-2 border-green-500 ${average < 10 ? "animate-blink" : ""
-            }`}
-        >
-          <h1 className="text-green-500 text-2xl">Green Warning</h1>
-          <p className="text-justify">Low fire risk, stable moving average</p>
-        </div>
-
-        <div
-          className={`warnings flex flex-col items-center border-2 border-yellow-500 ${average >= 10 && average < 15 ? "animate-blink" : ""
-            }`}
-        >
-          <h1 className="text-yellow-500 text-2xl">Yellow Warning</h1>
-          <p>Moderate risk, 10 & above moving average!</p>
-        </div>
-
-        <div
-          className={`warnings flex flex-col items-center border-2 border-orange-500 ${average >= 15 && average < 30 ? "animate-blink" : ""
-            }`}
-        >
-          <h1 className="text-orange-500 text-2xl">Orange Warning</h1>
-          <p>Significant risk, 15 & above moving average!</p>
-        </div>
-
-        <div
-          className={`warnings flex flex-col items-center border-2 border-red-500 ${average >= 30 ? "animate-blink" : ""
-            }`}
-        >
-          <h1 className="text-2xl">Red Warning</h1>
-          <p>Critical situation, high cases !.</p>
+  const renderEssay = (district, trendData) => {
+    return (
+      <div className="mb-4 p-4 bg-white shadow-md rounded-lg">
+        <div key={district} className="flex flex-col md:flex-row md:space-x-4 w-full">
+          <div>
+            <h2 className="text-2xl font-bold mb-2">District {district} Analysis</h2>
+            <p className="mb-4">
+              Sa loob ng mga taon, ipinakita ng District {district} ang mga sumusunod na trend:
+            </p>
+            <ul>
+              {Object.entries(trendData).map(([year, trend]) => (
+                <li key={year}>{`${year}: ${trend}`}</li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
-      <div className="chart-ma flex">
+    );
+  };
 
-        <div className="chart-ma-1 flex flex-col justify-center items-center w-[48%] m-4 bg-white p-8 border-2 border-yellow-500 mx-auto my-4">
+  return (
+    <div className="moving-average-page p-8 ">
+      <h2 className="text-3xl font-bold mb-6">Moving Average Analysis by District</h2>
 
-          <h2 className="text-xl font-bold mb-4">
-            Moving Average Graph of Fire Cases
-          </h2>
-          <div className="flex">
-            <div className="mb-4">
-              <label className="font-bold mb-2 mr-4">Year:</label>
-              <input
-                type="number"
-                value={year}
-                onChange={handleYearChange}
-                min="2017"
-                className="border border-gray-300 rounded px-3 py-2 w-20 mr-8"
-              />
-            </div>
-            <div className="mb-4">
-              <label className="font-bold mb-2 mr-4">District:</label>
-              <input
-                type="number"
-                value={district}
-                onChange={handleDistrictChange}
-                min="1"
-                max="6"
-                className="border border-gray-300 rounded px-3 py-2 w-20"
-              />
-            </div>
-
-          </div>
-
-          <Chart
-            options={chartOptions}
-            series={chartSeries}
-            type="area"
-            height={350}
-            className="w-full"
-          />
+      <div className="flex flex-wrap border-2 border-red-700 p-4 bg-orange-800 shadow-lg">
+      {Object.entries(analysisByDistrict).map(([district, trendData]) => (
+        <div key={district} className="w-full md:w-1/2 lg:w-1/2 xl:w-1/4 mb-4">
+          {renderEssay(district, trendData)}
         </div>
-        <div className="chart-ma-1 flex flex-col justify-center items-center w-[48%] m-4 bg-white p-8 border-2 border-yellow-500 mx-auto my-4">
+      ))}
+       <div className="flex flex-col justify-center items-center w-[48%] m-4 bg-white p-8 border-2 border-yellow-500 mx-auto my-4">
           <h2 className="text-xl font-bold mb-4">
             Predicted Value of Fire Cases Next Year
           </h2>
@@ -223,9 +98,26 @@ const MovingAverageGraph = () => {
             className="w-full"
           />
         </div>
+    </div>
+      <div className="mt-8 bg-white p-4 rounded-md">
+        <p className="mb-4">
+          Batay sa mga trend na ito, maaari nating mapansin na may mga pagbabago sa takbo ng kaso sa bawat taon. Narito ang ilang obserbasyon:
+        </p>
+
+        <p className="mb-4">
+          Taong 2018, sa District 1, lumitaw na may paminsang pag-angat ng kaso ngunit ito ay bumaba noong mga sumunod na taon. Maaaring ito ay dahil sa mga hakbang na ipinatupad sa komunidad upang mapababa ang bilang ng mga kaso.
+        </p>
+
+        <p className="mb-4">
+          Sa District 3, makikita natin na nanatili itong medyo stable mula 2017 hanggang 2020, ngunit biglang nagkaroon ng pagtaas noong 2021. Maaring may mga pangyayari o mga bagay sa komunidad na nakatulong sa pag-usbong ng kaso noong taon na iyon.
+        </p>
+
+        <p>
+          Ang District 5 ay nakakita ng pagtaas noong 2018 at 2019, ngunit bumaba ito ng malaki noong 2020 at nanatili sa mababang antas hanggang 2024. Maaaring ito ay dahil sa mga mahigpit na patakaran ng kwarantina at iba pang hakbang na naitaguyod ng pamahalaan noong panahong iyon.
+        </p>
       </div>
     </div>
   );
 };
 
-export default MovingAverageGraph;
+export default MovingAverageGraphUser;

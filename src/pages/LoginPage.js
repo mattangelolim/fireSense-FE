@@ -18,7 +18,6 @@ const LoginPage = () => {
   const [nameReg, setNameReg] = useState("");
   const [districtReg, setDistrictReg] = useState("");
   const [passwordReg, setPasswordReg] = useState("");
-  const [user_type, setUserType] = useState("");
 
   const navigate = useNavigate();
 
@@ -38,7 +37,7 @@ const LoginPage = () => {
         name: nameReg,
         district: districtReg,
         password: passwordReg,
-        user_type: user_type,
+        user_type: "Resident",
       });
       console.log(response);
       if (response.status === 200) {
@@ -301,7 +300,7 @@ const LoginPage = () => {
                     <option value="District 6">District 6</option>
                   </select>
                 </div>
-                <div>
+                {/* <div>
                   <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                     What user are you?
                   </label>
@@ -321,7 +320,7 @@ const LoginPage = () => {
                     <option value="Firefighter">Firefighter</option>
                     <option value="Brgy. Heads">Brgy. Heads</option>
                   </select>
-                </div>
+                </div> */}
 
                 <div>
                   <label
