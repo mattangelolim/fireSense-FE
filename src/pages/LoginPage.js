@@ -17,6 +17,7 @@ const LoginPage = () => {
   const [phoneReg, setPhoneReg] = useState("");
   const [nameReg, setNameReg] = useState("");
   const [districtReg, setDistrictReg] = useState("");
+  const [area, setArea] = useState("")
   const [passwordReg, setPasswordReg] = useState("");
 
   const navigate = useNavigate();
@@ -36,6 +37,7 @@ const LoginPage = () => {
         phone: phoneReg,
         name: nameReg,
         district: districtReg,
+        area: area,
         password: passwordReg,
         user_type: "Resident",
       });
@@ -83,7 +85,7 @@ const LoginPage = () => {
         if (user_type === "admin") {
           alert("Login successful!");
           navigate("/admin/home");
-          // console.log(Cookies.get("role"));
+          
         } else {
           alert("User Login successful!");
           navigate("/home");
@@ -300,6 +302,106 @@ const LoginPage = () => {
                     <option value="District 6">District 6</option>
                   </select>
                 </div>
+                {districtReg === 'District 1' && (
+                        <div className="flex flex-col gap-1 font-tbc font-medium text-title13">
+                            <label htmlFor="area">District 1 Area:</label>
+                            <select
+                                onChange={(e) => setArea(e.target.value)}
+                                value={area}
+                                className="border rounded-lg p-1 text-title13 texttransition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-black dark:placeholder:text-neutral-200 dark:focus:border-primary"
+                                required
+                            >
+                                <option value="" disabled>Select an area</option>
+                                <option value="Tondo I (West)">Tondo I (West)</option>
+                                \
+                            </select>
+                        </div>
+                    )}
+
+                    {districtReg === 'District 2' && (
+                        <div className="flex flex-col gap-1 font-tbc font-medium text-title13">
+                            <label htmlFor="area">District 2 Area:</label>
+                            <select
+                                onChange={(e) => setArea(e.target.value)}
+                                value={area}
+                                className="border rounded-lg p-1 text-title13 texttransition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-black dark:placeholder:text-neutral-200 dark:focus:border-primary"
+                                required
+                            >
+                                <option value="" disabled>Select an area</option>
+                                <option value="Tondo I (West)">Tondo II (East)</option>
+                                \
+                            </select>
+                        </div>
+                    )}
+                    {districtReg === 'District 3' && (
+                        <div className="flex flex-col gap-1 font-tbc font-medium text-title13">
+                            <label htmlFor="area">District 3 Area:</label>
+                            <select
+                                onChange={(e) => setArea(e.target.value)}
+                                value={area}
+                                className="border rounded-lg p-1 text-title13 texttransition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-black dark:placeholder:text-neutral-200 dark:focus:border-primary"
+                                required
+                            >
+                                <option value="" disabled>Select an area</option>
+                                <option value="Binondo">Binondo</option>
+                                <option value="San Nicolas">San Nicolas</option>
+                                <option value="Santa Cruz">Santa Cruz</option>
+                            </select>
+                        </div>
+                    )}
+                    {districtReg === 'District 4' && (
+                        <div className="flex flex-col gap-1 font-tbc font-medium text-title13">
+                            <label htmlFor="area">District 4 Area:</label>
+                            <select
+                                onChange={(e) => setArea(e.target.value)}
+                                value={area}
+                                className="border rounded-lg p-1 text-title13 texttransition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-black dark:placeholder:text-neutral-200 dark:focus:border-primary"
+                                required
+                            >
+                                <option value="" disabled>Select an area</option>
+                                <option value="Sampaloc">Sampaloc</option>
+
+                            </select>
+                        </div>
+                    )}
+                    {districtReg === 'District 5' && (
+                        <div className="flex flex-col gap-1 font-tbc font-medium text-title13">
+                            <label htmlFor="area">District 5 Area:</label>
+                            <select
+                                onChange={(e) => setArea(e.target.value)}
+                                value={area}
+                                className="border rounded-lg p-1 text-title13 texttransition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-black dark:placeholder:text-neutral-200 dark:focus:border-primary"
+                                required
+                            >
+                                <option value="" disabled>Select an area</option>
+                                <option value="Ermita">Ermita</option>
+                                <option value="Intramuros">Intramuros</option>
+                                <option value="Malate">Malate</option>
+                                <option value="Paco">Paco</option>
+                                <option value="Port Area">Port Area</option>
+                                <option value="San Andres Bukid">San Andres Bukid</option>
+                            </select>
+                        </div>
+                    )}
+                    {districtReg === 'District 6' && (
+                        <div className="flex flex-col gap-1 font-tbc font-medium text-title13">
+                            <label htmlFor="area">District 6 Area:</label>
+                            <select
+                                onChange={(e) => setArea(e.target.value)}
+                                value={area}
+                                className="border rounded-lg p-1 text-title13 texttransition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-black dark:placeholder:text-neutral-200 dark:focus:border-primary"
+                                required
+                            >
+                                <option value="" disabled>Select an area</option>
+                                <option value="Ermita">Pandacan</option>
+                                <option value="Intramuros">San Miguel</option>
+                                <option value="Malate">Santa Ana</option>
+                                <option value="Paco">Pandacan</option>
+                                <option value="Port Area">Santa Mesa</option>
+
+                            </select>
+                        </div>
+                    )}
                 {/* <div>
                   <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                     What user are you?

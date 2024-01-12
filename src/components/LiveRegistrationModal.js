@@ -82,7 +82,7 @@ const LiveRegistrationModal = ({ isOpen, onClose }) => {
             />
           </div>
           <div className="mb-3 cursor-pointer">
-            <text>Streaming Key:<span onClick={toggleStreamingKey}> {showStreamingKey ? "S44ne-MQMZO" : "*******" }</span></text>
+            <text>Streaming Key:<span onClick={toggleStreamingKey}> {showStreamingKey ? "CXl2F-DP9lZ" : "*******" }</span></text>
           </div>
         </div>
         <button
