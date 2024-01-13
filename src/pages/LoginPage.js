@@ -395,8 +395,8 @@ const LoginPage = () => {
                                 <option value="" disabled>Select an area</option>
                                 <option value="Ermita">Pandacan</option>
                                 <option value="Intramuros">San Miguel</option>
-                                <option value="Malate">Santa Ana</option>
-                                <option value="Paco">Pandacan</option>
+                                <option value="Sta Ana">Santa Ana</option>
+                                <option value="Paco">Paco</option>
                                 <option value="Port Area">Santa Mesa</option>
 
                             </select>
