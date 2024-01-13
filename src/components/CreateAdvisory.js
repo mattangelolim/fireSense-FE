@@ -45,7 +45,7 @@ const CreateAdvisory = () => {
         expirationMinutes,
         expirationSeconds,
         district: district,
-        areas:area,
+        areas: area,
         alert: alert
       });
 
@@ -288,11 +288,11 @@ const CreateAdvisory = () => {
                   required
                 >
                   <option value="" disabled>Select an area</option>
-                  <option value="Ermita">Pandacan</option>
-                  <option value="Intramuros">San Miguel</option>
-                  <option value="Malate">Santa Ana</option>
-                  <option value="Paco">Pandacan</option>
-                  <option value="Port Area">Santa Mesa</option>
+                  <option value="Pandacan">Pandacan</option>
+                  <option value="San Miguel">San Miguel</option>
+                  <option value="Sta Ana">Santa Ana</option>
+                  <option value="Paco">Paco</option>
+                  <option value="Santa Mesa">Santa Mesa</option>
 
                 </select>
               </div>

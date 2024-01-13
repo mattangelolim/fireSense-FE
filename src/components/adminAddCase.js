@@ -196,12 +196,12 @@ const AddCaseModal = ({ isOpen, onClose }) => {
                                 className="border rounded-lg p-1 text-title13 texttransition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-black dark:placeholder:text-neutral-200 dark:focus:border-primary"
                                 required
                             >
-                                <option value="" disabled>Select an area</option>
-                                <option value="Ermita">Pandacan</option>
-                                <option value="Intramuros">San Miguel</option>
-                                <option value="Malate">Santa Ana</option>
-                                <option value="Paco">Pandacan</option>
-                                <option value="Port Area">Santa Mesa</option>
+                                 <option value="" disabled>Select an area</option>
+                                <option value="Pandacan">Pandacan</option>
+                                <option value="San Miguel">San Miguel</option>
+                                <option value="Sta Ana">Santa Ana</option>
+                                <option value="Paco">Paco</option>
+                                <option value="Santa Mesa">Santa Mesa</option>
 
                             </select>
                         </div>
