@@ -39,7 +39,7 @@ const CreateAdvisory = () => {
 
     try {
       // Send POST request using Axios
-      const response = await axios.post("http://3.27.218.228:9000/admin/advisory", {
+      const response = await axios.post("http://localhost:9000/admin/advisory", {
         announcement,
         expirationHours,
         expirationMinutes,

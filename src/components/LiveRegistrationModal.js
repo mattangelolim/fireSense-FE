@@ -16,7 +16,7 @@ const LiveRegistrationModal = ({ isOpen, onClose }) => {
 
     try {
       const response = await axios.post(
-        "http://3.27.218.228:9000/api/broadcast/live",
+        "http://localhost:9000/api/broadcast/live",
         {
           username,
           message,

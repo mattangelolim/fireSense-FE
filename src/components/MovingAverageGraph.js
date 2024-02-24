@@ -29,7 +29,7 @@ const MovingAverageGraph = () => {
 
   const handleAlarm = async () => {
     try {
-      const response = await axios.post(`http://3.27.218.228:9000/api/message?year=${year}&district=${district}&values=${average}`, {
+      const response = await axios.post(`http://localhost:9000/api/message?year=${year}&district=${district}&values=${average}`, {
         params: {
           year: year,
           district: district,
@@ -60,7 +60,7 @@ const MovingAverageGraph = () => {
 
   useEffect(() => {
     // Make a request to the API endpoint
-    axios.get('http://3.27.218.228:9000/api/moving-average/prediction')
+    axios.get('http://localhost:9000/api/moving-average/prediction')
       .then(response => {
         // Assuming the response data is an array
         setChartData(response.data);
@@ -73,7 +73,7 @@ const MovingAverageGraph = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       axios
-        .get("http://3.27.218.228:9000/api/moving-average", {
+        .get("http://localhost:9000/api/moving-average", {
           params: {
             year: year,
             district: district,

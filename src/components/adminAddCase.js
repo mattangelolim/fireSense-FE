@@ -13,7 +13,7 @@ const AddCaseModal = ({ isOpen, onClose }) => {
 
     const handleAddCase = async () => {
         try {
-            const response = await axios.post('http://3.27.218.228:9000/api/report/case', {
+            const response = await axios.post('http://localhost:9000/api/report/case', {
                 year: year,
                 month: month,
                 district: district,

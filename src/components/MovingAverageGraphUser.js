@@ -10,7 +10,7 @@ const MovingAverageGraphUser = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://3.27.218.228:9000/api/moving-average/text');
+        const response = await axios.get('http://localhost:9000/api/moving-average/text');
         setAnalysisByDistrict(response.data.analysisByDistrict);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -22,7 +22,7 @@ const MovingAverageGraphUser = () => {
 
   useEffect(() => {
     // Make a request to the API endpoint
-    axios.get('http://3.27.218.228:9000/api/moving-average/prediction')
+    axios.get('http://localhost:9000/api/moving-average/prediction')
       .then(response => {
         // Assuming the response data is an array
         setChartData(response.data);
